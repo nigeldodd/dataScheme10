@@ -30,5 +30,5 @@ const p1={
   "stripe": [{"col" : "r","len": 96},{"col" : "g","len": 36}]
  }]
 
- 
+document.getElementById("pplaceholder").innerText=ps[1].stripe[0].col
 alert(ps[1].stripe[0].col)
