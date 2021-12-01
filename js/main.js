@@ -22,6 +22,7 @@ replaceHolder();*/
 //document.getElementById("pplaceholder").innerHTML="replacement text"
 
 const p1={
-  "name" : "Elon"
+  "name" : "Elon",
+  "stripe: ["r","g","b"]
  }
- alert(p1.name)
+ alert(p1.stripe[1])
