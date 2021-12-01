@@ -36,10 +36,10 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
  {
   "name" : "James Clerk Maxwell",
   "stripe": [{"col" : "b","len": 66},{"col" : "r","len": 66},{"col" : "r","len": 76},{"col" : "w","len": 84}]
- }]
-]
+ }
+];
 
 //Create a string from arbitrary 
-dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len
+dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
 
 document.getElementById("pplaceholder").innerText=dispStr
