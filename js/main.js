@@ -11,4 +11,4 @@ function replaceHolder() {
   document.getElementById("pplaceholder").innerText="replacement text"
 }
 
-replaceHolder()
+replaceHolder();
