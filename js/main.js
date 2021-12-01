@@ -21,13 +21,13 @@ document.getElementById("pplaceholder").innerText="this text has been replaced"
 replaceHolder();*/
 //document.getElementById("pplaceholder").innerHTML="replacement text"
 
-/*const p1={
+const p1={
   "name" : "Elon",
-  "stripe: ["r","g","b"]
- }*/
+  "stripe": ["r","g","b"]
+ }
  //alert(p1.stripe[1])
  //alert(p1.name)
- const data = {
+ /*const data = {
   "name": "John",
   "age": 22,
   "hobby": {
@@ -36,5 +36,5 @@ replaceHolder();*/
 "sport" : "football"
   },
   "class" : ["JavaScript", "HTML", "CSS"]
-}
-alert(data.hobby.sport)
+}*/
+alert(p1.stripe[1])
