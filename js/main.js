@@ -23,7 +23,8 @@ replaceHolder();*/
 
 const p1={
   "name" : "Elon",
-  "stripe": ["r","g","b"]
+  //"stripe": ["r","g","b"]//indices start at 0
+  "stripe": [{"col" : "r","len": 86}]
  }
  //alert(p1.stripe[1])
  //alert(p1.name)
