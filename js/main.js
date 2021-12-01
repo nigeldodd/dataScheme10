@@ -14,12 +14,6 @@ function changeColor(newColor) {
 }
 document.getElementById("pplaceholder").innerText="this text has been replaced"
 
-/*function replaceHolder() {
-  document.getElementById("pplaceholder").innerText="replacement text"
-}
-
-replaceHolder();*/
-//document.getElementById("pplaceholder").innerHTML="replacement text"
 
 const p1={
   "name" : "Elon",
@@ -29,25 +23,12 @@ const p1={
 
  const ps = [{
   "name" : "Elon",
-  //"stripe": ["r","g","b"]//indices start at 0
-  "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46}]
+  "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46},{"col" : "b","len": 55}]
  },
  {
   "name" : "Fawkes",
-  //"stripe": ["r","g","b"]//indices start at 0
   "stripe": [{"col" : "r","len": 96},{"col" : "g","len": 36}]
  }]
 
- //alert(p1.stripe[1])
- //alert(p1.name)
- /*const data = {
-  "name": "John",
-  "age": 22,
-  "hobby": {
-"reading" : true,
-"gaming" : false,
-"sport" : "football"
-  },
-  "class" : ["JavaScript", "HTML", "CSS"]
-}*/
-alert(ps[1].name)
+ 
+alert(ps[1].stripe[0].col)
