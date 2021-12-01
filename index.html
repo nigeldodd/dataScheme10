@@ -11,10 +11,17 @@
 </head>
 <body class="fullscreen">
   <div class="container">
-    <h1 class="title">Hello bat! 4</h1>
+    <h1 class="title">Hello bat! 5</h1>
     <p id="pplacehoolder"> this is placeholder text</p>
+    <p id="para">Some text here</p>
+    <script>
+    function changeColor(newColor) {
+      var elem = document.getElementById('para');
+      elem.style.color = newColor;
+    }</script>
+    <button onclick="changeColor('blue');">blue</button>
+    <button onclick="changeColor('red');">red</button>
   </div>
   <script src="js/main.js"></script>
-  <script>document.getElementById("pplaceholder").innerHTML="replacement text"</script>
 </body>
 </html>
