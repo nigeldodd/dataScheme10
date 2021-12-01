@@ -5,11 +5,9 @@ window.onload = () => {
       navigator.serviceWorker
                .register('./sw.js');
     }
-    //document.getElementById("pplaceholder").innerHTML="replacement text"
   }
 
 
-document.getElementById("pplaceholder").innerText="this text has been replaced"
 
 
 const p1={
