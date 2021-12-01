@@ -31,4 +31,6 @@ const p1={
   "stripe": [{"col" : "r","len": 96},{"col" : "w","len": 26},{"col" : "r","len": 46},{"col" : "g","len": 36}]
  }]
 
-document.getElementById("pplaceholder").innerText=ps[1].stripe[0].col
+dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len
+
+document.getElementById("pplaceholder").innerText=dispStr
