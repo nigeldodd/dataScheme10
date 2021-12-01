@@ -8,10 +8,7 @@ window.onload = () => {
     //document.getElementById("pplaceholder").innerHTML="replacement text"
   }
 
-function changeColor(newColor) {
-  var elem = document.getElementById('para');
-  elem.style.color = newColor;
-}
+
 document.getElementById("pplaceholder").innerText="this text has been replaced"
 
 
@@ -28,7 +25,10 @@ const p1={
  {
   "name" : "Fawkes",
   "stripe": [{"col" : "r","len": 96},{"col" : "g","len": 36}]
+ },
+ {
+  "name" : "Isambard",
+  "stripe": [{"col" : "r","len": 96},{"col" : "w","len": 26},{"col" : "r","len": 46},{"col" : "g","len": 36}]
  }]
 
 document.getElementById("pplaceholder").innerText=ps[1].stripe[0].col
-alert(ps[1].stripe[0].col)
