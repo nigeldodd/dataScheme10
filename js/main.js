@@ -38,4 +38,4 @@ const p1={
   },
   "class" : ["JavaScript", "HTML", "CSS"]
 }*/
-alert(p1.stripe[0])
+alert(p1.stripe[0].col)
