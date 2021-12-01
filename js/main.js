@@ -25,4 +25,5 @@ const p1={
   "name" : "Elon",
   "stripe: ["r","g","b"]
  }
- alert(p1.stripe[1])
+ //alert(p1.stripe[1])
+ alert(p1.name)
