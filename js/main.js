@@ -10,12 +10,10 @@ window.onload = () => {
 
 
 
-const p1={
-  "name" : "Elon",
-  //"stripe": ["r","g","b"]//indices start at 0
-  "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46}]
- }
-/* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
+
+
+
+  /* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
 colour lookup table (future work) to cater for colour blindness. The inner Json is extendable to 
 incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
 */
