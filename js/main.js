@@ -37,4 +37,4 @@ replaceHolder();*/
   },
   "class" : ["JavaScript", "HTML", "CSS"]
 }
-alert(data.name)
+alert(data.hobby.sport)
