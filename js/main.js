@@ -5,7 +5,7 @@ window.onload = () => {
       navigator.serviceWorker
                .register('./sw.js');
     }
-    document.getElementById("pplaceholder").innerHTML="replacement text"
+    //document.getElementById("pplaceholder").innerHTML="replacement text"
   }
 
 /*function replaceHolder() {
