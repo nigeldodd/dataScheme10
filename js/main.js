@@ -7,8 +7,9 @@ window.onload = () => {
     }
   }
 
-function replaceHolder() {
+/*function replaceHolder() {
   document.getElementById("pplaceholder").innerText="replacement text"
 }
 
-replaceHolder();
+replaceHolder();*/
+document.getElementById("pplaceholder").innerHTML="replacement text"
