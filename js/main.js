@@ -11,8 +11,8 @@ window.onload = () => {
 function changeColor(newColor) {
   var elem = document.getElementById('para');
   elem.style.color = newColor;
-  document.getElementById("pplaceholder").innerText="replacement text"
 }
+document.getElementById("pplaceholder").innerText="replacement text"
 
 /*function replaceHolder() {
   document.getElementById("pplaceholder").innerText="replacement text"
