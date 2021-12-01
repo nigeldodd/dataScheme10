@@ -7,11 +7,12 @@ window.onload = () => {
     }
     //document.getElementById("pplaceholder").innerHTML="replacement text"
   }
-  
-  function changeColor(newColor) {
-    var elem = document.getElementById('para');
-    elem.style.color = newColor;
-  }
+
+function changeColor(newColor) {
+  var elem = document.getElementById('para');
+  elem.style.color = newColor;
+  document.getElementById("pplaceholder").innerText="replacement text"
+}
 
 /*function replaceHolder() {
   document.getElementById("pplaceholder").innerText="replacement text"
