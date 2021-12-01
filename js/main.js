@@ -27,6 +27,16 @@ const p1={
   "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46}]
  }
 
+ const ps = [{
+  "name" : "Elon",
+  //"stripe": ["r","g","b"]//indices start at 0
+  "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46}]
+ },
+ {
+  "name" : "Fawkes",
+  //"stripe": ["r","g","b"]//indices start at 0
+  "stripe": [{"col" : "r","len": 96},{"col" : "g","len": 36}]
+ }]
 
  //alert(p1.stripe[1])
  //alert(p1.name)
@@ -40,4 +50,4 @@ const p1={
   },
   "class" : ["JavaScript", "HTML", "CSS"]
 }*/
-alert(p1.stripe[1].len)
+alert(ps[1].name)
