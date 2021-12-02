@@ -53,6 +53,7 @@ for (var i = 0; i < ps.length; i++) {
     //cell.style.color="red"; ok
     //cell.setAttribute("color","blue"); no
     cell.className='grn';
+    cell.style.width = "100px";
     cell.appendChild(cellText);
     row.appendChild(cell);
   }
