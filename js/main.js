@@ -51,7 +51,7 @@ for (var i = 0; i < ps.length; i++) {
     var cell = document.createElement("td");
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
     //cell.style.color="red";
-    cell.setAttrubute("color","blue");
+    cell.setAttribute("color","blue");
     cell.appendChild(cellText);
     row.appendChild(cell);
   }
