@@ -44,12 +44,10 @@ dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
 document.getElementById("pplaceholder").innerText=dispStr
 // https://www.webcodegeeks.com/javascript/javascript-table-example/
 var ourTable = document.getElementById("outerTable");
-var ourTableBody = document.createElement("tbody");
- 
- 
-for (var i = 0; i < 4; i++) {
+var ourTableBody = document.createElement("tbody"); 
+for (var i = 0; i < ps.length; i++) {
   var row = document.createElement("tr");
-  for (var j = 0; j <2; j++) {
+  for (var j = 0; j <ps[i].stripe.length; j++) {
     var cell = document.createElement("td");
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
     cell.appendChild(cellText);
