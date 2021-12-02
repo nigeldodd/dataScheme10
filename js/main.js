@@ -41,5 +41,22 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 
 //Create a string from arbitrary 
 dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
-
 document.getElementById("pplaceholder").innerText=dispStr
+// https://www.webcodegeeks.com/javascript/javascript-table-example/
+var ourTable = document.getElementById("outerTable");
+var ourTableBody = document.createElement("tbody");
+ 
+ 
+for (var i = 0; i < 4; i++) {
+  var row = document.createElement("tr");
+  for (var j = 0; j <2; j++) {
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode("cell in row "+i+", column "+j);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+  }
+  ourTableBody.appendChild(row);
+}
+ourTable.appendChild(ourTableBody);
+body.appendChild(ourTable);
+ourTable.setAttribute("border", "2");
