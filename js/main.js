@@ -53,7 +53,7 @@ for (var i = 0; i < ps.length; i++) {
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
     //cell.style.color="red"; ok
     //cell.setAttribute("color","blue"); no
-    var cellLen = ps[i].stripe[j].len;
+    var cellLen = ps[i].stripe[j].len;// not expressed, since has to align with other columns
     cell.className='grn';
     cell.style.width = cellLen + "px";
     cell.appendChild(cellText);
