@@ -47,6 +47,7 @@ var ourTable = document.getElementById("outerTable");
 var ourTableBody = document.createElement("tbody"); 
 for (var i = 0; i < ps.length; i++) {
   var row = document.createElement("tr");
+  //at this point we want three td elements, the middle one containing an inner table
   for (var j = 0; j <ps[i].stripe.length; j++) {
     var cell = document.createElement("td");
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
