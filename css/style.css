@@ -18,3 +18,23 @@ html, .fullscreen {
 .title {
     font-size: 3rem;
 }
+
+table,  td, th, tr {
+    border-collapse: collapse;
+  }
+  
+  tr.borderbottom td{
+    border-bottom: 3pt black;
+  }
+  
+  
+  td.grn {
+    background-color: green;
+  }
+  td.red {
+    background-color: red;
+  }
+  td.blu {
+    background-color: blue;
+  }
+  

@@ -50,8 +50,9 @@ for (var i = 0; i < ps.length; i++) {
   for (var j = 0; j <ps[i].stripe.length; j++) {
     var cell = document.createElement("td");
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
-    //cell.style.color="red";
-    cell.setAttribute("color","blue");
+    //cell.style.color="red"; ok
+    //cell.setAttribute("color","blue"); no
+    cell.className='grn';
     cell.appendChild(cellText);
     row.appendChild(cell);
   }
