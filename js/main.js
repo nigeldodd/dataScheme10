@@ -52,8 +52,9 @@ for (var i = 0; i < ps.length; i++) {
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
     //cell.style.color="red"; ok
     //cell.setAttribute("color","blue"); no
+    var cellLen = ps[i].stripe[j].len;
     cell.className='grn';
-    cell.style.width = "100px";
+    cell.style.width = cellLen + "px";
     cell.appendChild(cellText);
     row.appendChild(cell);
   }
