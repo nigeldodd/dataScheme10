@@ -43,11 +43,13 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
 document.getElementById("pplaceholder").innerText=dispStr
 // https://www.webcodegeeks.com/javascript/javascript-table-example/
-var ourTable = document.getElementById("outerTable");
+var ourTable = document.getElementById("outerTable");//only the outer table is specified in html
 var ourTableBody = document.createElement("tbody"); 
 for (var i = 0; i < ps.length; i++) {
   var row = document.createElement("tr");
   //at this point we want three td elements, the middle one containing an inner table
+  //first td
+
   for (var j = 0; j <ps[i].stripe.length; j++) {
     var cell = document.createElement("td");
     var cellText = document.createTextNode("cell in row "+i+", column "+j);
@@ -61,6 +63,6 @@ for (var i = 0; i < ps.length; i++) {
   }
   ourTableBody.appendChild(row);
 }
-ourTable.appendChild(ourTableBody);
-body.appendChild(ourTable);
+ourTable.appendChild(ourTableBody);//outer table
+body.appendChild(ourTable);// not necessary because of previous line
 ourTable.setAttribute("border", "2");
