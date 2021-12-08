@@ -56,10 +56,12 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   //first td
   var cell1 = document.createElement("td");
   var cellText1 = document.createTextNode(ps[i].name);
+  cell1.appendChild(cellText1)
   //now the middle table
   //last td
   var cell3 = document.createElement("td");
   var cellText3 = document.createTextNode("discharged");
+  cell3.appendChild(cellText3)
   // append middle table to cell2
   ///cell2.appendChild(middleTable)
   // append the three columns (td's) to the row
