@@ -48,6 +48,33 @@ and the other for the coloured stripes
 The td boundaries of these two rows will align. 
 */
 
+var ourTable = document.getElementById("outerTable");//only the outer table is specified in html
+for (var i = 0; i < ps.length; i++) { //iterate over patients
+  var row = document.createElement("tr");
+  //at this point we want three td elements, the middle one containing an inner table
+  //first td
+  var cell1 = document.createElement("td");
+  var cellText1 = document.createTextNode(ps[i].name);
+  //now the middle table
+  var cell2 = document.createElement("td");
+  var middleTable = document.createElement("table");
+  var rowM1 = document.createElement("tr");
+  var rowM2 = document.createElement("tr");
+  for (var j = 0; j <ps[i].stripe.length; j++) {
+    var cellM1=document.createElement("td");
+    var cellM2=document.createElement("td");
+    var cellLen = ps[i].stripe[j].len;
+    cellM1.style.width = cellLen + "px";
+    cellM2.style.width = cellLen + "px";
+    rowM1.appendChild(cellM1); //append cells one after another in the row
+    rowM2.appendChild(cellM2);
+  }//end of middle cell
+  // append rows to               
+  //last td
+  var cell3 = document.createElement("td");
+  var cellText3 = document.createTextNode("discharged");
+}
+/* Old code
 //Create a string from arbitrary 
 dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
 document.getElementById("pplaceholder").innerText=dispStr
@@ -75,3 +102,4 @@ for (var i = 0; i < ps.length; i++) {
 ourTable.appendChild(ourTableBody);//outer table
 body.appendChild(ourTable);// not necessary because of previous line
 ourTable.setAttribute("border", "2");
+*/
