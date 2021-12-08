@@ -40,8 +40,8 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 ];
 
 const colTable = [{
-  0 : "red", ]
-};
+  0 : "red"}
+];
 
 /*
 Only need td's inside tr's inside a table.
