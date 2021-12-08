@@ -19,23 +19,23 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 */
  const ps = [{
   "name" : "Elon Musk",
-  "stripe": [{"col" : "r","len": 86},{"col" : "g","len": 46},{"col" : "b","len": 55}]
+  "stripe": [{"col" : "r","len": 86, "txt":"PET"},{"col" : "g","len": 46, "txt":"CT"},{"col" : "b","len": 55, "txt":"MDT"}]
  },
  {
   "name" : "Guy Fawkes",
-  "stripe": [{"col" : "r","len": 96},{"col" : "g","len": 36}]
+  "stripe": [{"col" : "r","len": 96, "txt":"CT"},{"col" : "g","len": 36, "txt":"PET"}]
  },
  {
   "name" : "Isambard Brunel",
-  "stripe": [{"col" : "r","len": 96},{"col" : "w","len": 26},{"col" : "r","len": 46},{"col" : "g","len": 36}]
+  "stripe": [{"col" : "r","len": 96, "txt":"MDT"},{"col" : "w","len": 26, "txt":"CT"},{"col" : "r","len": 46, "txt":"PET"},{"col" : "g","len": 36, "txt":"MDT"}]
  },
  {
   "name" : "Andrea Motis",
-  "stripe": [{"col" : "w","len": 26},{"col" : "g","len": 55},{"col" : "b","len": 43},{"col" : "g","len": 46}]
+  "stripe": [{"col" : "w","len": 26, "txt":"CT"},{"col" : "g","len": 55, "txt":"PET"},{"col" : "b","len": 43, "txt":"MDT"},{"col" : "g","len": 46, "txt":"MDT"}]
  },
  {
   "name" : "James Clerk Maxwell",
-  "stripe": [{"col" : "b","len": 66},{"col" : "r","len": 66},{"col" : "r","len": 76},{"col" : "w","len": 84}]
+  "stripe": [{"col" : "b","len": 66, "txt":"MDT"},{"col" : "r","len": 66, "txt":"PET"},{"col" : "r","len": 76, "txt":"CT"},{"col" : "w","len": 84, "txt":"MDT"}]
  }
 ];
 
@@ -68,6 +68,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
+    cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
+    cellM1.appendChild(cellM1Text)
     cellM2.className='grn';
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
