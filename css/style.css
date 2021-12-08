@@ -27,6 +27,9 @@ table,  td, th, tr {
     border-bottom: 3pt black;
   }
   
+  .stripe {
+    height: "300px"
+  }
   
   td.grn {
     background-color: green;
