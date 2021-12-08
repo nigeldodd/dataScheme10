@@ -61,7 +61,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   var cell3 = document.createElement("td");
   var cellText3 = document.createTextNode("discharged");
   // append middle table to cell2
-  cell2.appendChild(middleTable)
+  ///cell2.appendChild(middleTable)
   // append the three columns (td's) to the row
   row.appendChild(cell1);
   //row.appendChild(cell2);
