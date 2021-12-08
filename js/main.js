@@ -49,6 +49,7 @@ The td boundaries of these two rows will align.
 */
 
 var ourTable = document.getElementById("outerTable");//only the outer table is specified in html
+var ourTableBody = document.createElement("tbody"); 
 for (var i = 0; i < ps.length; i++) { //iterate over patients
   var row = document.createElement("tr");
   //at this point we want three td elements, the middle one containing an inner table
@@ -80,9 +81,9 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row.appendChild(cell1);
   row.appendChild(cell2);
   row.appendChild(cell3);
-  ourTable.appendChild(row)
+  ourTableBody.appendChild(row)
 }
-ourTable.appendChild(ourTable);//outer table
+ourTable.appendChild(ourTableBody);//outer table
 
 /* Old code
 //Create a string from arbitrary 
