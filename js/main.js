@@ -39,6 +39,10 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
  }
 ];
 
+const colTable = [{
+  0 : "red", ]
+};
+
 /*
 Only need td's inside tr's inside a table.
 This table will consist of tr's with three td's
@@ -62,7 +66,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   var middleTable = document.createElement("table");
   var rowM1 = document.createElement("tr"); //top row for PET, CT etc
   var rowM2 = document.createElement("tr"); //bottom row for stripe
-  rowM2.className="stripe"
+  //rowM2.className="stripe"
   for (var j = 0; j <ps[i].stripe.length; j++) {//all the parts of the stripe
     var cellM1=document.createElement("td");
     var cellM2=document.createElement("td");
