@@ -9,7 +9,7 @@ window.onload = () => {
 
 
 
-
+// viewable at https://nigeldodd.github.io/dataScheme01/
 
 
 
@@ -38,6 +38,15 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
   "stripe": [{"col" : "b","len": 66},{"col" : "r","len": 66},{"col" : "r","len": 76},{"col" : "w","len": 84}]
  }
 ];
+
+/*
+Only need td's inside tr's inside a table.
+This table will consist of tr's with three td's
+the middle td will be itself a table
+with two tr's, one for the labels like PET, CT, MDT
+and the other for the coloured stripes
+The td boundaries of these two rows will align. 
+*/
 
 //Create a string from arbitrary 
 dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
