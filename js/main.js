@@ -82,7 +82,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row.appendChild(cell3);
   ourTable.appendChild(row)
 }
-ourTable.appendChild(ourTableBody);//outer table
+ourTable.appendChild(ourTable);//outer table
 
 /* Old code
 //Create a string from arbitrary 
