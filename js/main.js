@@ -77,6 +77,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
+    dummyText=document.createTextNode('..');
+    cellM2.appendChild(dummyText);
     cellM2.className='grn';
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
