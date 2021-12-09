@@ -82,7 +82,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     //cludge to get tr to be a certain height
     //since setting class of tr to stripe does not work
     var divInTr=document.createElement("div");
-    divInTr.className('stripe')
+    divInTr.className('stripe');
     cellM2.appendChild(divInTr);
     cellM2.className='blu';
     rowM1.appendChild(cellM1); //append cells one after another in the top row
