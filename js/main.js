@@ -39,6 +39,70 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
  }
 ];
 
+//William' data structure extended from Mark's and Andrew's
+const ps2 = [
+  {
+      "firstName": "James",
+      "surName": "Blunt",
+      "hospitalNumber": "1234567",
+      "referralDate" : "1/04/2021",
+      "testsDates": {
+          "chestXray" : "04/05/2021 15:01",
+          "CTThorax" : "29/05/2021 16:02",
+          "PET_CT" : "02/05/2021 10:55",
+          "EBUS": "28/06/2021 09:55"
+      }
+  },
+  {
+      "firstName": "Dave",
+      "surName": "Blunt",
+      "hospitalNumber": "1234567",
+      "referralDate" : "11/05/2021",
+      "testsDates": {
+          "chestXray" : "10/05/2021 15:01",
+          "CTThorax" : "21/05/2021 16:02",
+          "PET_CT" : "30/05/2021 10:55",
+          "EBUS": "05/06/2021 09:55"
+      }
+  },
+  {
+      "firstName": "Bob",
+      "surName": "Blunt",
+      "hospitalNumber": "1234567",
+      "referralDate" : "11/07/2021",
+      "testsDates": {
+          "chestXray" : "10/03/2021 15:01",
+          "CTThorax" : "21/03/2021 16:02",
+          "PET_CT" : "30/03/2021 10:55",
+          "EBUS": "05/04/2021 09:55"
+      }
+  },
+  {
+      "firstName": "Jenny",
+      "surName": "Blunt",
+      "hospitalNumber": "1234567",
+      "referralDate" : "11/03/2021",
+      "testsDates": {
+          "chestXray" : "4/05/2021 15:01",
+          "CTThorax" : "8/05/2021 16:02",
+          "PET_CT" : "23/05/2021 10:55",
+          "EBUS": "12/06/2021 09:55"
+      }
+  },
+  {
+      "firstName": "Eric",
+      "surName": "Smith",
+      "hospitalNumber": "1234567",
+      "referralDate" : "11/04/2021",
+      "testsDates": {
+          "chestXray" : "9/06/2021 15:01",
+          "CTThorax" : "20/06/2021 16:02",
+          "PET_CT" : "29/06/2021 10:55",
+          "EBUS": "4/07/2021 09:55"
+      }
+  }
+  ];
+
 const colTable = [{
   'r' : "red",
   'g' : "grn",
@@ -75,7 +139,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
-    cellM2.style.height = "100px";
+    cellM2.style.lineHeight = "100px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
     //dummyText=document.createTextNode('..');
