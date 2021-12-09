@@ -40,9 +40,9 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 ];
 
 const colTable = [{
-  0 : "red",
-  1 : "grn",
-  2 : "blu"}
+  'r' : "red",
+  'g' : "grn",
+  'b' : "blu"}
 ];
 
 /*
@@ -68,7 +68,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   var middleTable = document.createElement("table");
   var rowM1 = document.createElement("tr"); //top row for PET, CT etc
   var rowM2 = document.createElement("tr"); //bottom row for stripe
-  rowM2.className='stripe';
+  //rowM2.className='stripe';
   for (var j = 0; j <ps[i].stripe.length; j++) {//all the parts of the stripe
     var cellM1=document.createElement("td");
     var cellM2=document.createElement("td");
@@ -77,9 +77,10 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
-    dummyText=document.createTextNode('..');
-    cellM2.appendChild(dummyText);
-    cellM2.className='stripe';
+    //dummyText=document.createTextNode('..');
+    //cellM2.appendChild(dummyText);
+    cellM2.className='blu';
+    
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
