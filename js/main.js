@@ -79,8 +79,12 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM1.appendChild(cellM1Text)
     //dummyText=document.createTextNode('..');
     //cellM2.appendChild(dummyText);
+    //cludge to get tr to be a certain height
+    //since setting class of tr to stripe does not work
+    var divInTr=document.createElement("div");
+    divInTr.className('stripe')
+    cellM2.appendChild(divInTr);
     cellM2.className='blu';
-    
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
