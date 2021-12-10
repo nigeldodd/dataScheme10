@@ -17,27 +17,7 @@ window.onload = () => {
 colour lookup table (future work) to cater for colour blindness. The inner Json is extendable to 
 incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
 */
- const ps = [{
-  "name" : "Elon Musk",
-  "stripe": [{"col" : "r","len": 86, "txt":"PET"},{"col" : "g","len": 46, "txt":"CT"},{"col" : "b","len": 55, "txt":"MDT"}]
- },
- {
-  "name" : "Guy Fawkes",
-  "stripe": [{"col" : "r","len": 96, "txt":"CT"},{"col" : "g","len": 36, "txt":"PET"}]
- },
- {
-  "name" : "Isambard Brunel",
-  "stripe": [{"col" : "r","len": 96, "txt":"MDT"},{"col" : "w","len": 26, "txt":"CT"},{"col" : "r","len": 46, "txt":"PET"},{"col" : "g","len": 36, "txt":"MDT"}]
- },
- {
-  "name" : "Andrea Motis",
-  "stripe": [{"col" : "w","len": 26, "txt":"CT"},{"col" : "g","len": 55, "txt":"PET"},{"col" : "b","len": 43, "txt":"MDT"},{"col" : "g","len": 46, "txt":"MDT"}]
- },
- {
-  "name" : "James Clerk Maxwell",
-  "stripe": [{"col" : "b","len": 66, "txt":"MDT"},{"col" : "r","len": 66, "txt":"PET"},{"col" : "r","len": 76, "txt":"CT"},{"col" : "w","len": 84, "txt":"MDT"}]
- }
-];
+
 
 //William' data structure extended from Mark's and Andrew's
 const ps2 = [
@@ -103,6 +83,28 @@ const ps2 = [
   }
   ];
 
+  const ps = [{
+    "name" : "Elon Musk",
+    "stripe": [{"col" : "r","len": 86, "txt":"PET"},{"col" : "g","len": 46, "txt":"CT"},{"col" : "b","len": 55, "txt":"MDT"}]
+   },
+   {
+    "name" : "Guy Fawkes",
+    "stripe": [{"col" : "r","len": 96, "txt":"CT"},{"col" : "g","len": 36, "txt":"PET"}]
+   },
+   {
+    "name" : "Isambard Brunel",
+    "stripe": [{"col" : "r","len": 96, "txt":"MDT"},{"col" : "w","len": 26, "txt":"CT"},{"col" : "r","len": 46, "txt":"PET"},{"col" : "g","len": 36, "txt":"MDT"}]
+   },
+   {
+    "name" : "Andrea Motis",
+    "stripe": [{"col" : "w","len": 26, "txt":"CT"},{"col" : "g","len": 55, "txt":"PET"},{"col" : "b","len": 43, "txt":"MDT"},{"col" : "g","len": 46, "txt":"MDT"}]
+   },
+   {
+    "name" : "James Clerk Maxwell",
+    "stripe": [{"col" : "b","len": 66, "txt":"MDT"},{"col" : "r","len": 66, "txt":"PET"},{"col" : "r","len": 76, "txt":"CT"},{"col" : "w","len": 84, "txt":"MDT"}]
+   }
+  ];
+
 const colTable = [{
   'r' : "red",
   'g' : "grn",
@@ -143,7 +145,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
     cellM1.appendChild(cellM1Text);
     var colKey = ps[i].stripe[j].col;
-    var colRef=colTable[0].colKey;
+    //var colRef=colTable[0].colKey;//undefined when colKey is "w"
+    var colRef=colTable[0].g;//undefined when colKey is "w"
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colRef;
     cellM2.className='red';
