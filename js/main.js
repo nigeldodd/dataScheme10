@@ -144,11 +144,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
     cellM1.appendChild(cellM1Text);
-    var colKey = ps[i].stripe[j].col;
-    //var colRef=colTable[0].colKey;//undefined when colKey is "w"
-    //var colRef=colTable[0].g;//gets the value grn
-    //var colRef=colTable[0]["b"];//gets the value blu
-    var colRef=colTable[0][colKey];//gets the value whi
+    var colKey = ps[i].stripe[j].col; //colKey is a string
+    var colRef=colTable[0][colKey];//gets the value e.g. whi, a string. Must use [] not . to access this.
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colRef;
     cellM2.className=colRef;
