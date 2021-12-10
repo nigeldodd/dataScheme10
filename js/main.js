@@ -13,10 +13,6 @@ window.onload = () => {
 
 
 
-  /* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
-colour lookup table (future work) to cater for colour blindness. The inner Json is extendable to 
-incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
-*/
 
 
 //William' data structure extended from Mark's and Andrew's
@@ -83,6 +79,12 @@ const ps2 = [
   }
   ];
 
+
+  /* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
+colour lookup table to cater for colour blindness. The inner Json is extendable to 
+incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
+*/
+
   const ps = [{
     "name" : "Elon Musk",
     "stripe": [{"col" : "r","len": 86, "txt":"PET"},{"col" : "g","len": 46, "txt":"CT"},{"col" : "b","len": 55, "txt":"MDT"}]
@@ -105,6 +107,12 @@ const ps2 = [
    }
   ];
 
+/* 
+The following is a looup table to convert the colour keys given in the patient json
+into a string. The string is a css style. There can be multiple tables. Here there is just one,
+and so the index [0] is used to address it. More can be added to provide different colour
+maps for different preferences or pathologies. 
+*/
 const colTable = [{
   'r' : "red",
   'g' : "grn",
@@ -144,10 +152,10 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
     cellM1.appendChild(cellM1Text);
+    // Lookup the colour and set the css style
     var colKey = ps[i].stripe[j].col; //colKey is a string
     var colRef=colTable[0][colKey];//gets the value e.g. whi, a string. Must use [] not . to access this.
-    //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
-    document.getElementById("pplaceholder").innerText=colRef;
+    document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
     cellM2.className=colRef;
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
