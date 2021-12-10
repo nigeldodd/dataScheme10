@@ -146,7 +146,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     //var colRef=colTable[0].ps[i].stripe[j].col;
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colKey;
-    cellM2.className=colRef;
+    cellM2.className='red';
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
