@@ -139,7 +139,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
-    cellM2.style.height = "100px";
+    //cellM2.style.height = "100px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
     //dummyText=document.createTextNode('..');
@@ -149,7 +149,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     //var divInTr=document.createElement("div");
     //divInTr.className='stripe';
     //cellM2.appendChild(divInTr);
-    cellM2.className='blu';
+    cellM2.classList.add('blu', 'stripe');
+    //cellM2.className='blu';
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
