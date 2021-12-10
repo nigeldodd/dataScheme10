@@ -87,23 +87,23 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
 
   const ps = [{
     "name" : "Elon Musk",
-    "stripe": [{"col" : "r","len": 86, "txt":"PET"},{"col" : "g","len": 46, "txt":"CT"},{"col" : "b","len": 55, "txt":"MDT"}]
+    "stripe": [{"col" : "r","len": 186, "txt":"PET"},{"col" : "g","len": 146, "txt":"CT"},{"col" : "b","len": 155, "txt":"MDT"}]
    },
    {
     "name" : "Guy Fawkes",
-    "stripe": [{"col" : "r","len": 96, "txt":"CT"},{"col" : "g","len": 36, "txt":"PET"}]
+    "stripe": [{"col" : "r","len": 196, "txt":"CT"},{"col" : "g","len": 236, "txt":"PET"}]
    },
    {
     "name" : "Isambard Brunel",
-    "stripe": [{"col" : "r","len": 96, "txt":"MDT"},{"col" : "w","len": 26, "txt":"CT"},{"col" : "r","len": 46, "txt":"PET"},{"col" : "g","len": 36, "txt":"MDT"}]
+    "stripe": [{"col" : "r","len": 296, "txt":"MDT"},{"col" : "w","len": 126, "txt":"CT"},{"col" : "r","len": 146, "txt":"PET"},{"col" : "g","len": 136, "txt":"MDT"}]
    },
    {
     "name" : "Andrea Motis",
-    "stripe": [{"col" : "w","len": 26, "txt":"CT"},{"col" : "g","len": 55, "txt":"PET"},{"col" : "b","len": 43, "txt":"MDT"},{"col" : "g","len": 46, "txt":"MDT"}]
+    "stripe": [{"col" : "w","len": 226, "txt":"CT"},{"col" : "g","len": 155, "txt":"PET"},{"col" : "b","len": 243, "txt":"MDT"},{"col" : "g","len": 146, "txt":"MDT"}]
    },
    {
-    "name" : "James Clerk Maxwell",
-    "stripe": [{"col" : "b","len": 66, "txt":"MDT"},{"col" : "r","len": 66, "txt":"PET"},{"col" : "r","len": 76, "txt":"CT"},{"col" : "w","len": 84, "txt":"MDT"}]
+    "name" : "James Clerk Maxwell",1
+    "stripe": [{"col" : "b","len":166, "txt":"MDT"},{"col" : "r","len": 166, "txt":"PET"},{"col" : "r","len": 176, "txt":"CT"},{"col" : "w","len": 184, "txt":"MDT"}]
    }
   ];
 
@@ -112,9 +112,11 @@ The following is a looup table to convert the colour keys given in the patient j
 into a string. The string is a css style. There can be multiple tables. Here there is just one,
 and so the index [0] is used to address it. More can be added to provide different colour
 maps for different preferences or pathologies. 
+Semantic key for normal colour vision:
+Red that we are awaiting a decision, orange that we are awaiting tests, purple that we are awaiting surgery, blue waiting oncology
 */
 const colTable = [{
-  'r' : "red",
+  'r' : "red",  
   'g' : "grn",
   'b' : "blu",
   'w' : "whi"}
@@ -174,7 +176,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
 
 
 /* Old code
