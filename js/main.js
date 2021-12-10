@@ -1,3 +1,6 @@
+// @ts-check
+
+
 window.onload = () => {
     'use strict';
   
