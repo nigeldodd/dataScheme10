@@ -146,7 +146,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM1.appendChild(cellM1Text);
     var colKey = ps[i].stripe[j].col;
     //var colRef=colTable[0].colKey;//undefined when colKey is "w"
-    var colRef=colTable[0].g;//undefined when colKey is "w"
+    //var colRef=colTable[0].g;//gets the value grn
+    var colRef-colTable[0]["b"]
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colRef;
     cellM2.className='red';
