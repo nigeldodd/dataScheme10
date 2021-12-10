@@ -139,7 +139,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
-    cellM2.style.lineHeight = "100px";
+    cellM2.style.height = "100px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
     //dummyText=document.createTextNode('..');
