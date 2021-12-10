@@ -142,7 +142,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt)
     cellM1.appendChild(cellM1Text)
-    cellM2.classList.add('blu');
+    cellM2.className=colTable[ps[i].stripe[j].col];
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
