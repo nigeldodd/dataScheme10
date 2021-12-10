@@ -20,16 +20,16 @@ html, .fullscreen {
 }
 
 table,  td, th, tr {
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
   }
   
   tr.borderbottom td{
-    border-bottom: 3pt black;
+    /*border-bottom: 3pt black;*/
   }
   
   td.stripe {
-    line-height: "300px";
-    height: "100px";
+    /*line-height: "300px";
+    height: "100px";*/
     background-color: red;
   }
   
