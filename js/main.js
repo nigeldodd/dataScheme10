@@ -143,7 +143,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
     cellM1.appendChild(cellM1Text);
     var colKey = ps[i].stripe[j].col;
-    //var colRef=colTable[0].ps[i].stripe[j].col;
+    var colRef=colTable[0].colKey;
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colKey;
     cellM2.className='red';
