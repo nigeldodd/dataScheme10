@@ -102,7 +102,7 @@ incorporate the popup messages etc.. The outer Json is extendable to incorporate
     "stripe": [{"col" : "w","len": 226, "txt":"CT"},{"col" : "g","len": 155, "txt":"PET"},{"col" : "b","len": 243, "txt":"MDT"},{"col" : "g","len": 146, "txt":"MDT"}]
    },
    {
-    "name" : "James Clerk Maxwell",1
+    "name" : "James Clerk Maxwell",
     "stripe": [{"col" : "b","len":166, "txt":"MDT"},{"col" : "r","len": 166, "txt":"PET"},{"col" : "r","len": 176, "txt":"CT"},{"col" : "w","len": 184, "txt":"MDT"}]
    }
   ];
