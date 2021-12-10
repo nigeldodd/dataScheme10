@@ -155,7 +155,6 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     // Lookup the colour and set the css style
     var colKey = ps[i].stripe[j].col; //colKey is a string
     var colRef=colTable[0][colKey];//gets the value e.g. whi, a string. Must use [] not . to access this.
-    document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
     cellM2.className=colRef;
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
@@ -174,7 +173,9 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row.appendChild(cell3);
   ourTableBody.appendChild(row)
 }
-ourTable.appendChild(ourTableBody);//outer table
+ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+
 
 /* Old code
 //Create a string from arbitrary 
