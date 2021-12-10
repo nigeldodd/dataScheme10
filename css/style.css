@@ -19,14 +19,13 @@ html, .fullscreen {
     font-size: 3rem;
 }
 
-table,  td, th, tr {
-    /*border-collapse: collapse;*/
-  }
-  
-  tr.borderbottom td{
-    border-bottom: 3pt black;
-  }
-  
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
   .stripe {
     height: 20px;
   }
