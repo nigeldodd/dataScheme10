@@ -28,7 +28,7 @@ table,  td, th, tr {
   }
   
   .stripe {
-    height: 100px;
+    height: 20px;
   }
   
   td.grn {
@@ -39,5 +39,8 @@ table,  td, th, tr {
   }
   td.blu {
     background-color: blue;
+  }
+  td.whi {
+    background-color: white;
   }
   
