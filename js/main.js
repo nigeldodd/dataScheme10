@@ -106,7 +106,7 @@ const ps2 = [
 const colTable = [{
   'r' : "red",
   'g' : "grn",
-  'b' : "blu"
+  'b' : "blu",
   'w' : "whi"}
 ];
 
