@@ -142,9 +142,10 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
     cellM1.appendChild(cellM1Text);
-    var colRef=colTable[0].ps[i].stripe[j].col;
+    var colKey = ps[i].stripe[j].col;
+    //var colRef=colTable[0].ps[i].stripe[j].col;
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
-    document.getElementById("pplaceholder").innerText=colRef;
+    document.getElementById("pplaceholder").innerText=colKey;
     cellM2.className=colRef;
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
