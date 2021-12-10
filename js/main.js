@@ -148,10 +148,10 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     //var colRef=colTable[0].colKey;//undefined when colKey is "w"
     //var colRef=colTable[0].g;//gets the value grn
     //var colRef=colTable[0]["b"];//gets the value blu
-    var colRef=colTable[0][colKey];//gets the value blu
+    var colRef=colTable[0][colKey];//gets the value whi
     //document.getElementById("pplaceholder").innerText=ps[i].stripe[j].col;
     document.getElementById("pplaceholder").innerText=colRef;
-    cellM2.className='red';
+    cellM2.className=colRef;
     rowM1.appendChild(cellM1); //append cells one after another in the top row
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
