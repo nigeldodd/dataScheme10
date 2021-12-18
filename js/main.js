@@ -193,6 +193,21 @@ for (var i = 0; i < lenMilestones; i++){//loop over the milestones
 psPatientData.stripe=psMilestones;
 ps.push(psPatientData);
 
+/* now in the form:
+
+ps: Array(1)
+0:
+name: "James Blunt"
+stripe: Array(7)
+0: {col: 'r', len: 120, txt: 'Triage'}
+1: {col: 'g', len: 240, txt: ' CT thorax '}
+2: {col: 'r', len: 60, txt: 'clinic'}
+3: {col: 'g', len: 360, txt: 'PET-CT'}
+4: {col: 'r', len: 90, txt: 'EBUS'}
+5: {col: 'g', len: 60, txt: 'MDT'}
+6: {col: 'r', len: 570, txt: 'Surgery'}
+
+*/
 
 /*
 Only need td's inside tr's inside a table.
