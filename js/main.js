@@ -151,7 +151,7 @@ const colTable = [{
   'w' : "whi"}
 ];
 
-/* import the patientData parts into a form resembling ps0.
+/* import the patientData parts into a format resembling ps0.
 Since there is only one patient, there will only be
 one item in the list.
 */
