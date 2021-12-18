@@ -156,7 +156,8 @@ Since there is only one patient, there will only be
 one item in the list.
 */
 
-var scaleFac = 10;
+var scaleFac = 30; //how wide to make it. Ultimately this needs to scale 62 days to display with
+//define variables to take the parts of the datastructure.
 var ps = [];
 var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]}
 var psMilestones = [];
@@ -168,7 +169,7 @@ var updatedAtVar;
 var completedOnVar;
 var psCol="g";
 var prevMilestoneDay=0
-for (var i = 0; i < lenMilestones; i++){
+for (var i = 0; i < lenMilestones; i++){//loop over the milestones
   if(psCol=="r"){
     psCol="g";
     } else {
@@ -188,6 +189,7 @@ for (var i = 0; i < lenMilestones; i++){
   psMilestones.push(psMilestone);
 
  }
+//push the data into the datastructure used by code below
 psPatientData.stripe=psMilestones;
 ps.push(psPatientData);
 
