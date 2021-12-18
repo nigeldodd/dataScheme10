@@ -12,75 +12,99 @@ window.onload = () => {
 
 
 
-// viewable at https://nigeldodd.github.io/dataScheme01/
+// viewable at https://nigeldodd.github.io/dataScheme02/
 
 
 
-
-
-//William' data structure extended from Mark's and Andrew's
-const ps2 = [
-  {
-      "firstName": "James",
-      "surName": "Blunt",
-      "hospitalNumber": "1234567",
-      "referralDate" : "1/04/2021",
-      "testsDates": {
-          "chestXray" : "04/05/2021 15:01",
-          "CTThorax" : "29/05/2021 16:02",
-          "PET_CT" : "02/05/2021 10:55",
-          "EBUS": "28/06/2021 09:55"
+var PatientData = {
+  "firstName": "James",
+  "lastName": "Blunt",
+  "dateOfBirth": "1952-05-11",
+  "hospitalNumber": "1234567",
+  "referralDate": "2021-05-11",
+  "milestones": [
+      {
+       /*   "milestoneType": {
+              "referenceName": "Plain chest X-ray (procedure)",
+              "name": "Chest X-Ray"
+          },
+          "addedAt": "2021-05-09",
+          "updatedAt": "2021-05-10",
+          "completedOn": "2021-05-10",
+          "currentState": "COMPLETED"
+      },
+      {*/
+          "milestoneType": {
+              "referenceName": "Triage",
+              "name": "Triage"
+          },
+          "addedAt": "2021-05-15",
+          "updatedAt": "2021-05-15",
+          "completedOn": "2021-05-15",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "CT of Thorax",
+              "name": " CT thorax "
+          },
+          "addedAt": "2021-05-21",
+          "updatedAt": "2021-05-23",
+          "completedOn": "2021-05-23",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "Clinic",
+              "name": "clinic"
+          },
+          "addedAt": "2021-05-24",
+          "updatedAt": "2021-05-25",
+          "completedOn": "2021-05-25",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "PET CT of whole body",
+              "name": "PET-CT"
+          },
+          "addedAt": "2021-05-25",
+          "updatedAt": "2021-06-06",
+          "completedOn": "2021-06-06",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "Endobronchial ultrasonography guided transbronchial needle aspiration",
+              "name": "EBUS"
+          },
+          "addedAt": "2021-06-07",
+          "updatedAt": "2021-06-07",
+          "completedOn": "2021-06-09",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "Specialist multidisciplinary team",
+              "name": "MDT"
+          },
+          "addedAt": "2021-06-09",
+          "updatedAt": "2021-06-11",
+          "completedOn": "2021-06-11",
+          "currentState": "COMPLETED"
+      },
+      {
+          "milestoneType": {
+              "referenceName": "Thoracic surgery",
+              "name": "Surgery"
+          },
+          "addedAt": "2021-06-11",
+          "updatedAt": "2021-06-31",
+          "completedOn": "2021-06-30",
+          "currentState": "COMPLETED"
       }
-  },
-  {
-      "firstName": "Dave",
-      "surName": "Blunt",
-      "hospitalNumber": "1234567",
-      "referralDate" : "11/05/2021",
-      "testsDates": {
-          "chestXray" : "10/05/2021 15:01",
-          "CTThorax" : "21/05/2021 16:02",
-          "PET_CT" : "30/05/2021 10:55",
-          "EBUS": "05/06/2021 09:55"
-      }
-  },
-  {
-      "firstName": "Bob",
-      "surName": "Blunt",
-      "hospitalNumber": "1234567",
-      "referralDate" : "11/07/2021",
-      "testsDates": {
-          "chestXray" : "10/03/2021 15:01",
-          "CTThorax" : "21/03/2021 16:02",
-          "PET_CT" : "30/03/2021 10:55",
-          "EBUS": "05/04/2021 09:55"
-      }
-  },
-  {
-      "firstName": "Jenny",
-      "surName": "Blunt",
-      "hospitalNumber": "1234567",
-      "referralDate" : "11/03/2021",
-      "testsDates": {
-          "chestXray" : "4/05/2021 15:01",
-          "CTThorax" : "8/05/2021 16:02",
-          "PET_CT" : "23/05/2021 10:55",
-          "EBUS": "12/06/2021 09:55"
-      }
-  },
-  {
-      "firstName": "Eric",
-      "surName": "Smith",
-      "hospitalNumber": "1234567",
-      "referralDate" : "11/04/2021",
-      "testsDates": {
-          "chestXray" : "9/06/2021 15:01",
-          "CTThorax" : "20/06/2021 16:02",
-          "PET_CT" : "29/06/2021 10:55",
-          "EBUS": "4/07/2021 09:55"
-      }
-  }
-  ];
+  ]
+};
 
 
   /* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
@@ -88,27 +112,29 @@ colour lookup table to cater for colour blindness. The inner Json is extendable 
 incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
 */
 
-  const ps = [{
+
+const ps0 = [{
     "name" : "Elon Musk",
     "stripe": [{"col" : "r","len": 186, "txt":"PET"},{"col" : "g","len": 146, "txt":"CT"},{"col" : "b","len": 155, "txt":"MDT"}]
-   },
-   {
+  },
+  {
     "name" : "Guy Fawkes",
     "stripe": [{"col" : "r","len": 196, "txt":"CT"},{"col" : "g","len": 236, "txt":"PET"}]
-   },
-   {
+  },
+  {
     "name" : "Isambard Brunel",
     "stripe": [{"col" : "r","len": 296, "txt":"MDT"},{"col" : "w","len": 126, "txt":"CT"},{"col" : "r","len": 146, "txt":"PET"},{"col" : "g","len": 136, "txt":"MDT"}]
-   },
-   {
+  },
+  {
     "name" : "Andrea Motis",
     "stripe": [{"col" : "w","len": 226, "txt":"CT"},{"col" : "g","len": 155, "txt":"PET"},{"col" : "b","len": 243, "txt":"MDT"},{"col" : "g","len": 146, "txt":"MDT"}]
-   },
-   {
+  },
+  {
     "name" : "James Clerk Maxwell",
     "stripe": [{"col" : "b","len":166, "txt":"MDT"},{"col" : "r","len": 166, "txt":"PET"},{"col" : "r","len": 176, "txt":"CT"},{"col" : "w","len": 184, "txt":"MDT"}]
-   }
+  }
   ];
+
 
 /* 
 The following is a looup table to convert the colour keys given in the patient json
@@ -124,6 +150,47 @@ const colTable = [{
   'b' : "blu",
   'w' : "whi"}
 ];
+
+/* import the patientData parts into a form resembling ps0.
+Since there is only one patient, there will only be
+one item in the list.
+*/
+
+var scaleFac = 10;
+var ps = [];
+var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]}
+var psMilestones = [];
+var referralDateVar = PatientData["referralDate"];
+var referralDateDate = new Date(referralDateVar);
+var lenMilestones = PatientData["milestones"].length;
+var addedAtVar;
+var updatedAtVar;
+var completedOnVar;
+var psCol="g";
+var prevMilestoneDay=0
+for (var i = 0; i < lenMilestones; i++){
+  if(psCol=="r"){
+    psCol="g";
+    } else {
+    psCol="r";
+  }
+  var psMilestone = {};
+  addedAtVar=PatientData["milestones"][i]["addedAt"];
+  completedOnVar=PatientData["milestones"][i]["completedOn"];
+  var addedAtDate = new Date(addedAtVar);
+  var completedOnDate = new Date(completedOnVar);
+  var addedAtDays = (addedAtDate - referralDateDate)/(1000*60*60*24);
+  var completedOnDays = (completedOnDate - referralDateDate)/(1000*60*60*24);
+  psMilestone.col = psCol;
+  psMilestone.len = (completedOnDays-prevMilestoneDay) * scaleFac;
+  prevMilestoneDay = completedOnDays; 
+  psMilestone.txt = PatientData["milestones"][i]["milestoneType"]["name"];
+  psMilestones.push(psMilestone);
+
+ }
+psPatientData.stripe=psMilestones;
+ps.push(psPatientData);
+
 
 /*
 Only need td's inside tr's inside a table.
@@ -179,35 +246,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
 
-
-/* Old code
-//Create a string from arbitrary 
-dispStr = ps[2].name + " " + ps[2].stripe[0].col + " " + ps[2].stripe[0].len;
-document.getElementById("pplaceholder").innerText=dispStr
-// https://www.webcodegeeks.com/javascript/javascript-table-example/
-var ourTable = document.getElementById("outerTable");//only the outer table is specified in html
-var ourTableBody = document.createElement("tbody"); 
-for (var i = 0; i < ps.length; i++) {
-  var row = document.createElement("tr");
-  //at this point we want three td elements, the middle one containing an inner table
-  //first td
-
-  for (var j = 0; j <ps[i].stripe.length; j++) {
-    var cell = document.createElement("td");
-    var cellText = document.createTextNode("cell in row "+i+", column "+j);
-    //cell.style.color="red"; ok
-    //cell.setAttribute("color","blue"); no
-    var cellLen = ps[i].stripe[j].len;// not expressed, since has to align with other columns
-    cell.className='grn';
-    cell.style.width = cellLen + "px";
-    cell.appendChild(cellText);
-    row.appendChild(cell);
-  }
-  ourTableBody.appendChild(row);
-}
-ourTable.appendChild(ourTableBody);//outer table
-body.appendChild(ourTable);// not necessary because of previous line
-ourTable.setAttribute("border", "2");
-*/
