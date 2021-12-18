@@ -31,7 +31,7 @@ table {
   border-collapse: collapse;
 }
   .stripe {
-    height: 20px;
+    height: 60px;
   }
   
   td.grn {
@@ -47,6 +47,6 @@ table {
     background-color: white;
   }
   td.smallText {
-    font-size:x-small;
+    font-size:xx-small;
   }
   
