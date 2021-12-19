@@ -170,17 +170,14 @@ var completedOnVar;
 var psCol="g";
 var prevMilestoneDay=0
 for (var i = 0; i < lenMilestones; i++){//loop over the milestones
-  if(psCol=="r"){//simply alternate colours between milestones
+  if(psCol=="r"){//simply alternate colours between milestones whose date is "completedOn"
     psCol="g";
     } else {
     psCol="r";
   }
   var psMilestone = {};
-  addedAtVar=PatientData["milestones"][i]["addedAt"];
   completedOnVar=PatientData["milestones"][i]["completedOn"];
-  var addedAtDate = new Date(addedAtVar);
   var completedOnDate = new Date(completedOnVar);
-  var addedAtDays = (addedAtDate - referralDateDate)/(1000*60*60*24);
   var completedOnDays = (completedOnDate - referralDateDate)/(1000*60*60*24);
   psMilestone.col = psCol;
   psMilestone.len = (completedOnDays-prevMilestoneDay) * scaleFac;
