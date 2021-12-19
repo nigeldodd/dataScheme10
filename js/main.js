@@ -12,7 +12,7 @@ window.onload = () => {
 
 
 
-// viewable at https://nigeldodd.github.io/dataScheme02/
+// viewable at https://nigeldodd.github.io/dataSceme02/
 
 
 
@@ -170,7 +170,7 @@ var completedOnVar;
 var psCol="g";
 var prevMilestoneDay=0
 for (var i = 0; i < lenMilestones; i++){//loop over the milestones
-  if(psCol=="r"){
+  if(psCol=="r"){//simply alternate colours between milestones
     psCol="g";
     } else {
     psCol="r";
