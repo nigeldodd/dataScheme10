@@ -184,7 +184,6 @@ for (var i = 0; i < lenMilestones; i++){//loop over the milestones
   prevMilestoneDay = completedOnDays; 
   psMilestone.txt = PatientData["milestones"][i]["milestoneType"]["name"];
   psMilestones.push(psMilestone);
-
  }
 //push the data into the datastructure used by code below
 psPatientData.stripe=psMilestones;
