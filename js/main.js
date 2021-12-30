@@ -187,7 +187,7 @@ for (var i = 0; i < lenMilestones; i++){//loop over the milestones
  }
 //push the data into the datastructure used by code below
 psPatientData.stripe=psMilestones;
-ps.push(psPatientData);
+///////ps.push(psPatientData);
 
 /* now in the form:
 
@@ -204,6 +204,20 @@ stripe: Array(7)
 6: {col: 'r', len: 570, txt: 'Surgery'}
 
 */
+
+const ps = [{
+  "name" : "James Blunt",
+  "stripe": [{"col" : "r","len": 40, "txt":"Triage"},//Triage CT thorax requested
+  {"col" : "g","len": 80, "txt":"Td"},//CT thorax done
+  {"col" : "r","len": 10, "txt":"Cr"},//Clinic Requested
+  {"col" : "g","len": 10, "txt":"Cd"},//Clinic done, PET-CT requested
+  {"col" : "g","len": 170, "txt":"PET done"},//PET-CT done
+  {"col" : "r","len": 10, "txt":"Er"},//EBUS requested
+  {"col" : "g","len": 10, "txt":"Ed"},//EBUS done, MDT requested
+  {"col" : "g","len": 60, "txt":"MDT done, Surgery requested"},//MDT done, Surgery requested
+  {"col" : "g","len": 160, "txt":"Surgery"},//surgery
+  {"col" : "w","len": 70, "txt":""}]
+},
 
 /*
 Only need td's inside tr's inside a table.
