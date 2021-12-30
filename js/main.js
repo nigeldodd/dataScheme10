@@ -217,7 +217,9 @@ const ps = [{
   {"col" : "g","len": 60, "txt":"MDT done, Surgery requested"},//MDT done, Surgery requested
   {"col" : "g","len": 160, "txt":"Surgery"},//surgery
   {"col" : "w","len": 70, "txt":""}]
-},
+}
+];
+
 
 /*
 Only need td's inside tr's inside a table.
