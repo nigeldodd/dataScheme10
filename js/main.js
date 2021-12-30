@@ -158,7 +158,7 @@ one item in the list.
 
 var scaleFac = 30; //how wide to make it. Ultimately this needs to scale 62 days to display with
 //define variables to take the parts of the datastructure.
-var ps = [];
+//// var ps = [];
 var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]}
 var psMilestones = [];
 var referralDateVar = PatientData["referralDate"];
