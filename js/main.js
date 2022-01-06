@@ -255,7 +255,20 @@ ps.push(psPatientData);//so that this psPatientData element becomes an element o
 //Now we have ps resembling psTarget in all but txt
 
 
-
+/* 
+The following is a looup table to convert the colour keys given in the patient json
+into a string. The string is a css style. There can be multiple tables. Here there is just one,
+and so the index [0] is used to address it. More can be added to provide different colour
+maps for different preferences or pathologies. 
+Semantic key for normal colour vision:
+Red that we are awaiting a decision, orange that we are awaiting tests, purple that we are awaiting surgery, blue waiting oncology
+*/
+const colTable = [{
+  'r' : "red",  
+  'g' : "grn",
+  'b' : "blu",
+  'w' : "whi"}
+];
 
 /*
 Only need td's inside tr's inside a table.
