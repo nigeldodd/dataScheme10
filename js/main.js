@@ -246,6 +246,7 @@ for (var i=0; i<count.length; i++){
   var psMilestone = {};
   psMilestone.col=timeLine[count[i]-1];//get colour before the switch
   psMilestone.len=count[i]*scaleFac;
+  psMilestone.txt=i;
   psMilestones.push(psMilestone)
 }
 
