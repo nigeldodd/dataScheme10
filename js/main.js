@@ -242,13 +242,16 @@ var scaleFac = 10;//for display. Should eventually be scaled such that 62 days f
 var ps = []; //Rendering Data Packet
 var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]} //Rendering Data Packet element
 var psMilestones = []; //list of {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP element without the header
+var colIndex=0;
 for (var i=0; i<count.length; i++){
   var psMilestone = {};
-  psMilestone.col=timeLine[count[i]-1];//get colour before the switch
+  psMilestone.col=timeLine[colIndex];
   psMilestone.len=count[i]*scaleFac;
   psMilestone.txt=i;
   psMilestones.push(psMilestone)
+  colIndex += count[i];
 }
+
 
 psPatientData.stripe=psMilestones;
 ps.push(psPatientData);//so that this psPatientData element becomes an element of the RDP
