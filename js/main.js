@@ -12,7 +12,7 @@ window.onload = () => {
 
 
 
-// viewable at https://nigeldodd.github.io/dataSceme02/
+// viewable at https://nigeldodd.github.io/dataScheme04/
 
 
 
@@ -46,7 +46,7 @@ var PatientData = {
       {
           "milestoneType": {
               "referenceName": "CT of Thorax",
-              "name": " CT thorax "
+              "name": "CT thorax"
           },
           "addedAt": "2021-05-21",
           "updatedAt": "2021-05-23",
@@ -105,120 +105,156 @@ var PatientData = {
       }
   ]
 };
-
-
-  /* Data structure for multiple patients. The col tokens, r,g,b,w etc. are to be remapped according to a 
-colour lookup table to cater for colour blindness. The inner Json is extendable to 
-incorporate the popup messages etc.. The outer Json is extendable to incorporate MRN etc..
-*/
-
-
-const ps0 = [{
-    "name" : "Elon Musk",
-    "stripe": [{"col" : "r","len": 186, "txt":"PET"},{"col" : "g","len": 146, "txt":"CT"},{"col" : "b","len": 155, "txt":"MDT"}]
-  },
-  {
-    "name" : "Guy Fawkes",
-    "stripe": [{"col" : "r","len": 196, "txt":"CT"},{"col" : "g","len": 236, "txt":"PET"}]
-  },
-  {
-    "name" : "Isambard Brunel",
-    "stripe": [{"col" : "r","len": 296, "txt":"MDT"},{"col" : "w","len": 126, "txt":"CT"},{"col" : "r","len": 146, "txt":"PET"},{"col" : "g","len": 136, "txt":"MDT"}]
-  },
-  {
-    "name" : "Andrea Motis",
-    "stripe": [{"col" : "w","len": 226, "txt":"CT"},{"col" : "g","len": 155, "txt":"PET"},{"col" : "b","len": 243, "txt":"MDT"},{"col" : "g","len": 146, "txt":"MDT"}]
-  },
-  {
-    "name" : "James Clerk Maxwell",
-    "stripe": [{"col" : "b","len":166, "txt":"MDT"},{"col" : "r","len": 166, "txt":"PET"},{"col" : "r","len": 176, "txt":"CT"},{"col" : "w","len": 184, "txt":"MDT"}]
-  }
-  ];
-
-
-/* 
-The following is a looup table to convert the colour keys given in the patient json
-into a string. The string is a css style. There can be multiple tables. Here there is just one,
-and so the index [0] is used to address it. More can be added to provide different colour
-maps for different preferences or pathologies. 
-Semantic key for normal colour vision:
-Red that we are awaiting a decision, orange that we are awaiting tests, purple that we are awaiting surgery, blue waiting oncology
-*/
-const colTable = [{
-  'r' : "red",  
-  'g' : "grn",
-  'b' : "blu",
-  'w' : "whi"}
+// Below is our target. This was made by hand from the Moqups graphic. The lengths are 10 x the days.
+// Only the Rule x lines need be implemented. 
+const psTarget = [{
+"name" : "James Blunt",
+"stripe": [{"col" : "r","len": 40, "txt":"Triage"},//"Triage CT thorax requested" Rule 1 red between referral and triage-completed
+{"col" : "g","len": 80, "txt":"Td"},//"CT thorax done" 
+{"col" : "r","len": 10, "txt":"Cr"},//"Clinic Requested."" Rule 2 red between CT thorax-completed and clinic-added
+{"col" : "g","len": 10, "txt":"Cd"},//"Clinic done, PET-CT requested"
+{"col" : "g","len": 170, "txt":"PET done"},//"PET-CT done"
+{"col" : "r","len": 10, "txt":"Er"},//"EBUS requested" Rule 3 red between PET-CT-completed and Ebus-added
+{"col" : "g","len": 10, "txt":"Ed"},//"EBUS done, MDT requested"
+{"col" : "g","len": 60, "txt":"MDT done, Surgery requested"},//"MDT done, Surgery requested"
+{"col" : "g","len": 160, "txt":"Surgery"},//"surgery"
+{"col" : "w","len": 70, "txt":""}]
+}
 ];
-
-/* import the patientData parts into a format resembling ps0.
-Since there is only one patient, there will only be
-one item in the list.
-*/
-
-var scaleFac = 30; //how wide to make it. Ultimately this needs to scale 62 days to display with
-//define variables to take the parts of the datastructure.
-//// var ps = [];
-var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]}
-var psMilestones = [];
+//PatientData is the Clinical Data Packet
 var referralDateVar = PatientData["referralDate"];
 var referralDateDate = new Date(referralDateVar);
 var lenMilestones = PatientData["milestones"].length;
-var addedAtVar;
-var updatedAtVar;
-var completedOnVar;
-var psCol="g";
-var prevMilestoneDay=0
-for (var i = 0; i < lenMilestones; i++){//loop over the milestones
-  if(psCol=="r"){//simply alternate colours between milestones whose date is "completedOn"
-    psCol="g";
-    } else {
-    psCol="r";
-  }
-  var psMilestone = {};
-  completedOnVar=PatientData["milestones"][i]["completedOn"];
-  var completedOnDate = new Date(completedOnVar);
-  var completedOnDays = (completedOnDate - referralDateDate)/(1000*60*60*24);
-  psMilestone.col = psCol;
-  psMilestone.len = (completedOnDays-prevMilestoneDay) * scaleFac;
-  prevMilestoneDay = completedOnDays; 
-  psMilestone.txt = PatientData["milestones"][i]["milestoneType"]["name"];
-  psMilestones.push(psMilestone);
- }
-//push the data into the datastructure used by code below
-psPatientData.stripe=psMilestones;
-///////ps.push(psPatientData);
-
-/* now in the form:
-
-ps: Array(1)
-0:
-name: "James Blunt"
-stripe: Array(7)
-0: {col: 'r', len: 120, txt: 'Triage'}
-1: {col: 'g', len: 240, txt: ' CT thorax '}
-2: {col: 'r', len: 60, txt: 'clinic'}
-3: {col: 'g', len: 360, txt: 'PET-CT'}
-4: {col: 'r', len: 90, txt: 'EBUS'}
-5: {col: 'g', len: 60, txt: 'MDT'}
-6: {col: 'r', len: 570, txt: 'Surgery'}
-
-*/
-
-const ps = [{
-  "name" : "James Blunt",
-  "stripe": [{"col" : "r","len": 40, "txt":"Triage"},//Triage CT thorax requested
-  {"col" : "g","len": 80, "txt":"Td"},//CT thorax done
-  {"col" : "r","len": 10, "txt":"Cr"},//Clinic Requested
-  {"col" : "g","len": 10, "txt":"Cd"},//Clinic done, PET-CT requested
-  {"col" : "g","len": 170, "txt":"PET done"},//PET-CT done
-  {"col" : "r","len": 10, "txt":"Er"},//EBUS requested
-  {"col" : "g","len": 10, "txt":"Ed"},//EBUS done, MDT requested
-  {"col" : "g","len": 60, "txt":"MDT done, Surgery requested"},//MDT done, Surgery requested
-  {"col" : "g","len": 160, "txt":"Surgery"},//surgery
-  {"col" : "w","len": 70, "txt":""}]
+var triageCompletedOn;
+var thoraxCompletedOn;
+var petCtCompletedOn;
+var clinicAddedAt;
+var ebusAddedAt;
+var surgeryAddedAt;
+var surgeryCompletedOn;
+//variables for rule delimiters
+var rule1Start=referralDateDate;
+var rule1End;
+var rule2Start;
+var rule2End;
+var rule3Start;
+var rule3End;
+var rule4Start;
+var rule4End;
+var rule1StartD;
+var rule1EndD;
+var rule2StartD;
+var rule2EndD;
+var rule3StartD;
+var rule3EndD;
+var rule4StartD;
+var rule4EndD;
+//etc.
+//populate timeLine of length 62 with g
+var timeLine = []
+for (var i=0; i< 62; i++){
+  timeLine[i] = "g";
 }
-];
+const currentDate = new Date();
+for (var i = 0; i < lenMilestones; i++){
+  var psMilestone = {};
+  var thisMilestone=PatientData["milestones"][i];
+  if(thisMilestone["milestoneType"]["name"]=="Triage"){
+    triageCompletedOn = new Date(thisMilestone["completedOn"]);
+    rule1End = triageCompletedOn;
+  }
+  else if(thisMilestone["milestoneType"]["name"]=="CT thorax"){
+    thoraxCompletedOn = new Date(thisMilestone["completedOn"]);
+    rule2Start=thoraxCompletedOn;
+  }
+  else if(thisMilestone["milestoneType"]["name"]=="clinic"){
+    clinicAddedAt = new Date(thisMilestone["addedAt"]);
+    rule2End=clinicAddedAt;
+  }
+  else if(thisMilestone["milestoneType"]["name"]=="PET-CT"){
+    petCtCompletedOn = new Date(thisMilestone["completedOn"]);
+    rule3Start=petCtCompletedOn;
+  }
+  else if(thisMilestone["milestoneType"]["name"]=="EBUS"){
+    ebusAddedAt = new Date(thisMilestone["addedAt"]);
+    rule3End=ebusAddedAt;
+  }
+  else if(thisMilestone["milestoneType"]["name"]=="Surgery"){
+    surgeryAddedAt = new Date(thisMilestone["addedAt"]);
+    rule4Start=surgeryAddedAt;
+    surgeryCompletedOn = new Date(thisMilestone["completedOn"]);
+    rule4End=surgeryCompletedOn;
+  }
+}
+// convert the dates to days from referral
+var msDay=1000*60*60*24;
+rule1StartD=0;
+rule1EndD=(rule1End-rule1Start)/msDay;
+rule2StartD=(rule2Start-rule1Start)/msDay;
+rule2EndD=(rule2End-rule1Start)/msDay;
+rule3StartD=(rule3Start-rule1Start)/msDay;
+rule3EndD=(rule3End-rule1Start)/msDay;
+rule4StartD=(rule4Start-rule1Start)/msDay;
+rule4EndD=(rule4End-rule1Start)/msDay;
+
+
+//populate timeLine of length 62 with g
+ var timeline = new Array(62).fill("g");
+
+// turn red or blue the days corresponding to the rules
+//Rule 1: If “mile” (actually a variable distance), between two milestones is between referral date and triage milestones, then colour this red
+for (var i = rule1StartD; i < rule1EndD; i++){
+  timeLine[i]="r";
+}
+//Rule 2: Else if “mile” is between CT thorax done and clinic requested, then colour is red
+for (var i = rule2StartD; i < rule2EndD; i++){
+  timeLine[i]="r";
+}
+//Rule 3: Else if “mile is between PET-CT and EBUS requested, then colour is red
+for (var i = rule3StartD; i < rule3EndD; i++){
+  timeLine[i]="r";
+}
+//Rule 4: Else if “mile” is between surgery requested and surgery has not yet been done, then colour is blue
+for (var i = rule4StartD; i < rule4EndD; i++){
+  timeLine[i]="b";
+}
+//Remainder of 62 day period is coloured white
+for (var i = rule4EndD; i < 62; i++){
+  timeLine[i]="w";
+}
+
+//build the array "count" to contain the run lenghts of the colours
+var j=0;
+var count = [];
+for(var i =0; i<62 ; i++){
+  count[j]=0;
+  var t1=timeLine[i];
+  while (timeLine[i]==t1){
+    count[j]=count[j]+1;
+    i++;
+  }
+  i--;
+  j++;
+}
+
+//build the psMilestones data structure that will become part of the RDP
+var scaleFac = 10;//for display. Should eventually be scaled such that 62 days fills the screen.
+var ps = []; //Rendering Data Packet
+var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]} //Rendering Data Packet element
+var psMilestones = []; //list of {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP element without the header
+for (var i=0; i<count.length; i++){
+  var psMilestone = {};
+  psMilestone.col=timeLine[count[i]];
+  psMilestone.len=count[i]*scaleFac;
+  psMilestones.push(psMilestone)
+}
+
+psPatientData.stripe=psMilestones;
+ps.push(psPatientData);//so that this psPatientData element becomes an element of the RDP
+
+//Now we have ps resembling psTarget in all but txt
+
+
 
 
 /*
