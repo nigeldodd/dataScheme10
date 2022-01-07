@@ -242,9 +242,9 @@ for (var i=0; i<count.length; i++){
   var psMilestone = {};
   psMilestone.col=timeLine[colIndex];
   psMilestone.len=count[i]*scaleFac;
+  colIndex += count[i];
   psMilestone.txt=colIndex;
   psMilestones.push(psMilestone)
-  colIndex += count[i];
 }
 
 
