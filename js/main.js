@@ -197,7 +197,7 @@ rule4EndD=(rule4End-rule1Start)/msDay;
  var timeLine = new Array(62).fill("g");
 
 // turn red or blue the days corresponding to the rules
-//Rule 1: If “mile” (actually a variable distance), between two milestones is between referral date and triage milestones, then colour this red
+//Rule 1: If “mile” (actually a variable distance), between two milestones is between referral date and triage milestones (triage completed), then colour this red
 for (var i = rule1StartD; i < rule1EndD; i++){
   timeLine[i]="r";
 }
