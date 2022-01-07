@@ -150,11 +150,6 @@ var rule3EndD;
 var rule4StartD;
 var rule4EndD;
 //etc.
-//populate timeLine of length 62 with g
-var timeLine = []
-for (var i=0; i< 62; i++){
-  timeLine[i] = "g";
-}
 const currentDate = new Date();
 for (var i = 0; i < lenMilestones; i++){
   var psMilestone = {};
@@ -199,7 +194,7 @@ rule4EndD=(rule4End-rule1Start)/msDay;
 
 
 //populate timeLine of length 62 with g
- var timeline = new Array(62).fill("g");
+ var timeLine = new Array(62).fill("g");
 
 // turn red or blue the days corresponding to the rules
 //Rule 1: If “mile” (actually a variable distance), between two milestones is between referral date and triage milestones, then colour this red
@@ -329,5 +324,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
 
