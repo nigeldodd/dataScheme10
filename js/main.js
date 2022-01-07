@@ -242,7 +242,7 @@ for (var i=0; i<count.length; i++){
   var psMilestone = {};
   psMilestone.col=timeLine[colIndex];
   psMilestone.len=count[i]*scaleFac;
-  colIndex += count[i];
+  colIndex += count[i];//do this here to get the txt to equal the day number
   psMilestone.txt=colIndex;
   psMilestones.push(psMilestone)
 }
