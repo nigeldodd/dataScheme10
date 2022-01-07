@@ -24,7 +24,7 @@ var PatientData = {
   "referralDate": "2021-05-11",
   "milestones": [
       {
-       /*   "milestoneType": {
+          "milestoneType": {
               "referenceName": "Plain chest X-ray (procedure)",
               "name": "Chest X-Ray"
           },
@@ -33,7 +33,7 @@ var PatientData = {
           "completedOn": "2021-05-10",
           "currentState": "COMPLETED"
       },
-      {*/
+      {
           "milestoneType": {
               "referenceName": "Triage",
               "name": "Triage"
@@ -324,5 +324,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
 
