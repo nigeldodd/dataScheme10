@@ -317,10 +317,10 @@ const psTarget = [{
     var psMilestone = {};
     psMilestone.col=timeLine[colIndex];
     psMilestone.len=count[i]*scaleFac;
+    colIndex += count[i];//do this here to get the txt to equal the day number
     psMilestone.txt=colIndex;
     psMilestones.push(psMilestone)
-    colIndex += count[i];
-  }
+    }
 
   psPatientData.stripe=psMilestones;
   ps.push(psPatientData);//so that this psPatientData element becomes an element of the RDP
