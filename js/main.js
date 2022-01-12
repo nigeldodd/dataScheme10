@@ -317,7 +317,7 @@ const psTarget = [{
     var psMilestone = {};
     psMilestone.col=timeLine[colIndex];
     psMilestone.len=count[i]*scaleFac;
-    psMilestone.txt=i;
+    psMilestone.txt=colIndex;
     psMilestones.push(psMilestone)
     colIndex += count[i];
   }
@@ -400,5 +400,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
 
