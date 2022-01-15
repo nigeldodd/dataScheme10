@@ -33,7 +33,7 @@ const psTarget = [{
 }
 ];
 
-  var PatientDataOld = {
+  var PatientDatalist = [{
     "firstName": "James",
     "lastName": "Blunt",
     "dateOfBirth": "1952-05-11",
@@ -121,8 +121,8 @@ const psTarget = [{
             "currentState": "COMPLETED"
         }
     ]
-};
- var PatientData = { 
+},// end of James Blunt
+{ 
 	"firstName": "Benny",
 	"lastName": "Hill",
 	"dateOfBirth": "1923-07-01",
@@ -180,11 +180,14 @@ const psTarget = [{
 			"currentState": "INCOMPLETE" 
 		}
 	] 
-}   ; 
+}
+]   ; 
 /* Only rule 1 is triggered by Benny Hill
 */
-// the code immediately below deals with one patient, i.e. one Clinical Data Packet, only
+var ps = []; //Rendering Data Packet, outside of loop so it can contain all patients in CDP
+for (var p = 0; p < PatientDatalist.length; p++){
   //PatientData is the Clinical Data Packet
+  var PatientData=PatientDatalist[p];
   var referralDateVar = PatientData["referralDate"];
   var referralDateDate = new Date(referralDateVar);
   var lenMilestones = PatientData["milestones"].length;
@@ -265,11 +268,10 @@ const psTarget = [{
     rule4EndD=(rule4End-rule1Start)/msDay;
   }
 
-
   //populate timeLine of length 62 with g
-   var timeLine = new Array(62).fill("g");
+  var timeLine = new Array(62).fill("g");
 
-  // turn red or blue the days corresponding to the rules
+// turn red or blue the days corresponding to the rules
   //Rule 1: If “mile” (actually a variable distance), between two milestones is between referral date and triage milestones [completedOn], then colour this red
   for (var i = rule1StartD; i < rule1EndD; i++){
     timeLine[i]="r";
@@ -309,7 +311,6 @@ const psTarget = [{
 
 //build the psMilestones data structure that will become part of the RDP
   var scaleFac = 10;//for display. Should eventually be scaled such that 62 days fills the screen.
-  var ps = []; //Rendering Data Packet
   var psPatientData = {"name" : PatientData["firstName"] + " " + PatientData["lastName"]} //Rendering Data Packet element
   var psMilestones = []; //list of {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP element without the header
   var colIndex=0;
@@ -317,13 +318,18 @@ const psTarget = [{
     var psMilestone = {};
     psMilestone.col=timeLine[colIndex];
     psMilestone.len=count[i]*scaleFac;
-    colIndex += count[i];//do this here to get the txt to equal the day number
-    psMilestone.txt=colIndex;
+    psMilestone.txt=i;
     psMilestones.push(psMilestone)
-    }
+    colIndex += count[i];
+  }
 
   psPatientData.stripe=psMilestones;
   ps.push(psPatientData);//so that this psPatientData element becomes an element of the RDP
+
+//Now we have ps resembling psTarget in all but txt
+
+}// end of for (var p = 0; p < PatientDatalist.length){
+//Now we have ps resembling psTarget in all but txt
 
 //Now we have ps resembling psTarget in all but txt
 
@@ -400,5 +406,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
 
