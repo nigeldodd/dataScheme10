@@ -319,8 +319,8 @@ for (var p = 0; p < PatientDatalist.length; p++){
     psMilestone.col=timeLine[colIndex];
     psMilestone.len=count[i]*scaleFac;
     colIndex += count[i];//do this here to get the txt to equal the day number
-    //psMilestone.txt=colIndex;
-    psMilestone.txt="";
+    psMilestone.txt=colIndex;
+    //psMilestone.txt="";
     psMilestones.push(psMilestone)
   }
 
