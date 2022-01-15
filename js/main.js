@@ -319,7 +319,8 @@ for (var p = 0; p < PatientDatalist.length; p++){
     psMilestone.col=timeLine[colIndex];
     psMilestone.len=count[i]*scaleFac;
     colIndex += count[i];//do this here to get the txt to equal the day number
-    psMilestone.txt=colIndex;
+    //psMilestone.txt=colIndex;
+    psMilestone.txt="";
     psMilestones.push(psMilestone)
   }
 
@@ -406,5 +407,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
 
