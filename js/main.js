@@ -183,7 +183,7 @@ const psTarget = [{
 }   ; 
 /* Only rule 1 is triggered by Benny Hill
 */
-
+// the code immediately below deals with one patient, i.e. one Clinical Data Packet, only
   //PatientData is the Clinical Data Packet
   var referralDateVar = PatientData["referralDate"];
   var referralDateDate = new Date(referralDateVar);
