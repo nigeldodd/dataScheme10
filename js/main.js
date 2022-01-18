@@ -331,7 +331,7 @@ function parseRdp(PatientData) {
   var psMilestones = []; //list of {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP element without the header
   var colIndex = 0;
   for (var i = 0; i < count.length; i++) {
-    var psMilestone = {};
+    psMilestone = {};
     psMilestone.col = timeLine[colIndex];
     psMilestone.len = count[i] * scaleFac;
     colIndex += count[i];//do this here to get the txt to equal the day number
