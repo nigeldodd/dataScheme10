@@ -253,9 +253,15 @@ function parseRdp(PatientData) {
   // convert the dates to days from referral
   var msDay = 1000 * 60 * 60 * 24;
   rule1StartD = 0;
-  rule1EndD = (rule1End - rule1Start) / msDay;
-  rule2StartD = (rule2Start - rule1Start) / msDay;
-  rule2EndD = (rule2End - rule1Start) / msDay;
+  if (rule1End){
+    rule1EndD = (rule1End - rule1Start) / msDay;
+  }
+  if(rule2Start){
+    rule2StartD = (rule2Start - rule1Start) / msDay;
+  }
+  if(rule2End){
+    rule2EndD = (rule2End - rule1Start) / msDay;
+  }
   if (rule3Start) {
     rule3StartD = (rule3Start - rule1Start) / msDay;
   }
@@ -268,6 +274,14 @@ function parseRdp(PatientData) {
   if (rule4End) {
     rule4EndD = (rule4End - rule1Start) / msDay;
   }
+
+  /* Error checking is done first by getDateCheck which returns 0 if 
+  either there is no date key or if the date is missing or "".
+  Then in the conversion of days to referral, if a rule start or end date is 0
+  the rule start or end D will be 0. 
+  Then in the following population of the timeLine, a rule with End D of 0
+  will not get written.
+  */
 
   //populate timeLine of length 62 with g
   var timeLine = new Array(62).fill("g");
@@ -405,5 +419,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
 
