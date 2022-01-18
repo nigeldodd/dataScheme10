@@ -230,22 +230,23 @@ function parseRdp(PatientData) {
   for (var i = 0; i < lenMilestones; i++) {
     var psMilestone = {};
     var thisMilestone = PatientData["milestones"][i];
-    if (thisMilestone["milestoneType"]["name"] == "Triage") {
+    var milestoneName=thisMilestone["milestoneType"]["name"];
+    if (milestoneName == "Triage") {
       rule1End = getDateCheck(thisMilestone,"completedOn");
     }
-    else if (thisMilestone["milestoneType"]["name"] == "CT thorax") {
+    else if (milestoneName == "CT thorax") {
       rule2Start = getDateCheck(thisMilestone,"completedOn");
     }
-    else if (thisMilestone["milestoneType"]["name"] == "clinic") {
+    else if (milestoneName == "clinic") {
       rule2End = getDateCheck(thisMilestone,"addedAt");
     }
-    else if (thisMilestone["milestoneType"]["name"] == "PET-CT") {
+    else if (milestoneName == "PET-CT") {
       rule3Start = getDateCheck(thisMilestone,"completedOn");
     }
-    else if (thisMilestone["milestoneType"]["name"] == "EBUS") {
+    else if (milestoneName == "EBUS") {
       rule3End = getDateCheck(thisMilestone,"addedAt");
     }
-    else if (thisMilestone["milestoneType"]["name"] == "Surgery") {
+    else if (milestoneName == "Surgery") {
       rule4Start = getDateCheck(thisMilestone,"addedAt");
       rule4End = getDateCheck(thisMilestone,"completedOn");
     }
@@ -419,5 +420,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
 
