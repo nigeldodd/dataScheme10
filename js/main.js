@@ -228,7 +228,6 @@ function parseRdp(PatientData) {
   //etc.
   const currentDate = new Date();
   for (var i = 0; i < lenMilestones; i++) {
-    var psMilestone = {};
     var thisMilestone = PatientData["milestones"][i];
     var milestoneName=thisMilestone["milestoneType"]["name"];
     if (milestoneName == "Triage") {
@@ -327,7 +326,8 @@ function parseRdp(PatientData) {
 
   //build the psMilestones data structure that will become part of the RDP
   var scaleFac = 10;//for display. Should eventually be scaled such that 62 days fills the screen.
-  var psPatientData = { "name": PatientData["firstName"] + " " + PatientData["lastName"] } //Rendering Data Packet element
+  var psPatientData = { "name": PatientData["firstName"] + " " + PatientData["lastName"] }; //Rendering Data Packet element
+  var psMilestone = {}; //single {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP single stripe segment
   var psMilestones = []; //list of {"col" : "b","len":166, "txt":"MDT"} type elements. i.e. RDP element without the header
   var colIndex = 0;
   for (var i = 0; i < count.length; i++) {
@@ -420,5 +420,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
 
