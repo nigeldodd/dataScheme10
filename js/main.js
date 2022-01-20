@@ -193,6 +193,11 @@ for (var p = 0; p < PatientDatalist.length; p++) {
   rdp = parseRdp(cdp);
   ps.push(rdp);
 }
+
+/*Check for the existence of dateKey (eg CompletedOn)
+If there is a valid date, return it as a Date object,
+otherwise return 0.
+*/
 function getDateCheck(milestone,dateKey){
   if(milestone.hasOwnProperty(dateKey)){
     var thisDate = new Date(milestone[dateKey]);
