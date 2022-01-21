@@ -205,7 +205,7 @@ for (var p = 0; p < PatientDatalist.length; p++) {
   ps.push(rdp);
 }
 ps.push(psTarget[0]);
-ps.push(psTarget[2]);
+ps.push(psTarget[1]);
 
 /*Check for the existence of dateKey (eg CompletedOn)
 If there is a valid date, return it as a Date object,
