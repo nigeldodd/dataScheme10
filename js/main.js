@@ -30,7 +30,18 @@ const psTarget = [{
   {"col" : "g","len": 60, "txt":"MDT done, Surgery requested"},//"MDT done, Surgery requested"
   {"col" : "g","len": 160, "txt":"Surgery"},//"surgery"
   {"col" : "w","len": 70, "txt":""}]
-}
+  },
+  {
+    "name": "Synth Etic",
+    "stripe": [{ "col": "r", "len": 80, "txt": "1" },//"Triage CT thorax requested" Rule 1 red between referral and triage-completed
+    { "col": "g", "len": 80, "txt": "2" },//"CT thorax done" 
+    { "col": "r", "len": 80, "txt": "3" },//"Clinic Requested."" Rule 2 red between CT thorax-completed and clinic-added
+    { "col": "g", "len": 80, "txt": "4" },//"Clinic done, PET-CT requested"
+    { "col": "r", "len": 80, "txt": "5" },//"PET-CT done"
+    { "col": "g", "len": 80, "txt": "6" },//"EBUS requested" Rule 3 red between PET-CT-completed and Ebus-added
+    { "col": "r", "len": 80, "txt": "7" },//"EBUS done, MDT requested"
+    { "col": "w", "len": 60, "txt": "8" }]
+  }
 ];
 
   var PatientDatalist = [{
@@ -194,6 +205,7 @@ for (var p = 0; p < PatientDatalist.length; p++) {
   ps.push(rdp);
 }
 ps.push(psTarget[0]);
+ps.push(psTarget[2]);
 
 /*Check for the existence of dateKey (eg CompletedOn)
 If there is a valid date, return it as a Date object,
@@ -426,5 +438,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 006"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 007"; //useful for debugging
 
