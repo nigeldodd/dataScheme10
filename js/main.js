@@ -193,6 +193,7 @@ for (var p = 0; p < PatientDatalist.length; p++) {
   rdp = parseRdp(cdp);
   ps.push(rdp);
 }
+ps.push(psTarget);
 
 /*Check for the existence of dateKey (eg CompletedOn)
 If there is a valid date, return it as a Date object,
@@ -425,5 +426,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 005"; //useful for debugging
 
