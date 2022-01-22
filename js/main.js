@@ -413,8 +413,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len - 3;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
-    //cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
-    cellM1Text=document.createTextNode("");
+    cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
+    //cellM1Text=document.createTextNode("");
     cellM1.appendChild(cellM1Text);
     // Lookup the colour and set the css style
     var colKey = ps[i].stripe[j].col; //colKey is a string
@@ -439,5 +439,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 013"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 014"; //useful for debugging
 
