@@ -410,7 +410,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   for (var j = 0; j <ps[i].stripe.length; j++) {//all the parts of the stripe
     var cellM1=document.createElement("td");
     var cellM2=document.createElement("td");
-    var cellLen = ps[i].stripe[j].len - 3;
+    var cellLen = ps[i].stripe[j].len - 6;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
@@ -438,5 +438,5 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   ourTableBody.appendChild(row)
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 009"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 010"; //useful for debugging
 
