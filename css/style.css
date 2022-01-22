@@ -50,7 +50,10 @@ table {
     font-size:xx-small;
   }
 
-  /*td {
+  /* td {
     border-style : hidden!important;
-   }*/
+   } */
+   td {
+    border : none;
+   }
   
