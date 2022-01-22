@@ -49,4 +49,8 @@ table {
   td.smallText {
     font-size:xx-small;
   }
+
+  td {
+    border-style : hidden!important;
+   }
   
