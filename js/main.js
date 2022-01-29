@@ -396,7 +396,7 @@ var ourTable = document.getElementById("outerTable");//only the outer table is s
 var ourTableBody = document.createElement("tbody");
 //elements to be used for each row or each patient arranged as a list
 var row = []; //tr one for each patient
-var cell1 = [];//td left hand td for the patient's name
+var cell1 = [];//td left hand td for the patient's name. Turning this into an array is not needed (yet)
 
 for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i] = document.createElement("tr");
@@ -445,7 +445,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].onclick = function() {showSingle(this.id)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 011"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 012"; //useful for debugging
 
 function showSingle(iShow) {
   console.log(iShow);
@@ -454,7 +454,7 @@ function showSingle(iShow) {
       row[i].remove();
     }
   }
-  row[iShow].onclick = function() {showAll(this.id)};
+  row[iShow].onclick = function() {showAll()};
 }
 
 function showAll(){
