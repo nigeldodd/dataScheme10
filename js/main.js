@@ -441,12 +441,12 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].appendChild(cell2);
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
-  row[i].onclick = function() {myFunction()};
+  row[i].onclick = function() {showSingle(i)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
 
-function myFunction() {
+function showSingle(iShow) {
   for (var i=0; i < ps.length; i++){
     row[i].remove();
   }
