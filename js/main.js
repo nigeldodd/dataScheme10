@@ -445,12 +445,12 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].onclick = function() {showSingle(this.id)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 008"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 009"; //useful for debugging
 
 function showSingle(iShow) {
   console.log(iShow);
   for (var i=0; i < ps.length; i++){
-    if (i != 3){
+    if (i != iShow){
       row[i].remove();
     }
   }
