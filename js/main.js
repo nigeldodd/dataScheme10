@@ -442,10 +442,10 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
   row[i].id=i;
-  row[i].onclick = function() {showSingle(row[i].id)};
+  row[i].onclick = function() {showSingle(this.id)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 007"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 008"; //useful for debugging
 
 function showSingle(iShow) {
   console.log(iShow);
