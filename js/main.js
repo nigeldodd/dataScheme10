@@ -441,7 +441,13 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].appendChild(cell2);
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
+  row[i].onclick = function() {myFunction()};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 000"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
 
+function myFunction() {
+  for (var i=0; i < ps.length; i++){
+    row[i].remove();
+  }
+}
