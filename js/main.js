@@ -441,10 +441,11 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].appendChild(cell2);
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
-  row[i].onclick = function() {showSingle(i)};
+  row[i].id=i;
+  row[i].onclick = function() {showSingle(row[i].id)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 006"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 007"; //useful for debugging
 
 function showSingle(iShow) {
   console.log(iShow);
