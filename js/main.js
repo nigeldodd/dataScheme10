@@ -444,11 +444,11 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].onclick = function() {showSingle(i)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
 
 function showSingle(iShow) {
   for (var i=0; i < ps.length; i++){
-    if (i != iShow){
+    if (i != 3){
       row[i].remove();
     }
   }
