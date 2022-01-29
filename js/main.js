@@ -437,7 +437,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   // append middle table to cell2
   cell2.appendChild(middleTable)
   // append the three columns (td's) to the row
-  row[i].appendChild(cell1);
+  row[i].appendChild(cell1[i]);
   row[i].appendChild(cell2);
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
