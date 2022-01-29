@@ -441,7 +441,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].appendChild(cell2);
   row[i].appendChild(cell3);
   ourTableBody.appendChild(row[i])
-  row[i].id=i;
+  row[i].id=i; //needs to have persistence outside creation of object
   row[i].onclick = function() {showSingle(this.id)};
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
