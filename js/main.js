@@ -459,6 +459,7 @@ function showSingle(iShow) {
 
 function showAll(){
   for (var i=0; i < ps.length; i++){
+    row[i].onclick = function() {showSingle(this.id)};
     ourTableBody.appendChild(row[i])    
   }
 }
