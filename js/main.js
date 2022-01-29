@@ -393,14 +393,18 @@ The td boundaries of these two rows will align.
 */
 
 var ourTable = document.getElementById("outerTable");//only the outer table is specified in html
-var ourTableBody = document.createElement("tbody"); 
+var ourTableBody = document.createElement("tbody");
+//elements to be used for each row or each patient arranged as a list
+var row = []; //tr one for each patient
+var cell1 = [];//td left hand td for the patient's name
+
 for (var i = 0; i < ps.length; i++) { //iterate over patients
-  var row = document.createElement("tr");
+  row[i] = document.createElement("tr");
   //at this point we want three td elements, the middle one containing an inner table
   //first td
-  var cell1 = document.createElement("td");
+  cell1[i] = document.createElement("td");
   var cellText1 = document.createTextNode(ps[i].name);
-  cell1.appendChild(cellText1)
+  cell1[i].appendChild(cellText1)
   //now the middle table
   var cell2 = document.createElement("td");
   var middleTable = document.createElement("table");
@@ -433,11 +437,11 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   // append middle table to cell2
   cell2.appendChild(middleTable)
   // append the three columns (td's) to the row
-  row.appendChild(cell1);
-  row.appendChild(cell2);
-  row.appendChild(cell3);
-  ourTableBody.appendChild(row)
+  row[i].appendChild(cell1);
+  row[i].appendChild(cell2);
+  row[i].appendChild(cell3);
+  ourTableBody.appendChild(row[i])
 }
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 014"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 000"; //useful for debugging
 
