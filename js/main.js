@@ -409,13 +409,13 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 005"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 006"; //useful for debugging
 
 
 function showSingle(iShow) {
   console.log(iShow);
-  for (var i=0; i < ps.length; i++){
-    row[i].remove();
+  while (ourTableBody.firstChild) {//remove any children
+    ourTableBody.removeChild(ourTableBody.lastChild);
   }
   ourTableBody.appendChild(rowAnnot[iShow])    
 }
