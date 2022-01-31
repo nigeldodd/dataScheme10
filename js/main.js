@@ -418,7 +418,6 @@ function showSingle(iShow) {
     row[i].remove();
   }
   ourTableBody.appendChild(rowAnnot[iShow])    
-  rowAnnot[iShow].onclick = function() {showAll()};
 }
 
 function showAll(){
