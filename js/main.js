@@ -409,7 +409,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 }
 
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
 
 /*function showSingle(iShow) {
   console.log(iShow);
@@ -430,6 +430,9 @@ function showSingle(iShow) {
 }
 
 function showAll(){
+  while (ourTableBody.firstChild) {
+    ourTableBody.removeChild(ourTableBody.lastChild);
+  }
   for (var i=0; i < ps.length; i++){
     row[i].onclick = function() {showSingle(this.id)};
     ourTableBody.appendChild(row[i])    
