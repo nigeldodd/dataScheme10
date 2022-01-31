@@ -401,25 +401,18 @@ var rowAnnot = [];  //tr one for each patient with annotation
 for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i]=makeRow(ps[i],0);
   rowAnnot[i]=makeRow(ps[i],1);
-  ourTableBody.appendChild(row[i])
+  //ourTableBody.appendChild(row[i])
   row[i].id=i; //needs to have persistence outside creation of object
   rowAnnot[i].id=i+ps.length; //needs to have persistence outside creation of object. The annotated rows have id's starting after the unannotated
   row[i].onclick = function() {showSingle(this.id)};
   rowAnnot[i].onclick = function() {showAll()};
 }
 
+showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
 
-/*function showSingle(iShow) {
-  console.log(iShow);
-  for (var i=0; i < ps.length; i++){
-    if (i != iShow){
-      row[i].remove();
-    }
-  }
-  row[iShow].onclick = function() {showAll()};
-}*/
+
 function showSingle(iShow) {
   console.log(iShow);
   for (var i=0; i < ps.length; i++){
@@ -430,7 +423,7 @@ function showSingle(iShow) {
 }
 
 function showAll(){
-  while (ourTableBody.firstChild) {
+  while (ourTableBody.firstChild) {//remove any children
     ourTableBody.removeChild(ourTableBody.lastChild);
   }
   for (var i=0; i < ps.length; i++){
