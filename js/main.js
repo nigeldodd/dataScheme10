@@ -396,18 +396,22 @@ var ourTable = document.getElementById("outerTable");//only the outer table is s
 var ourTableBody = document.createElement("tbody");
 //elements to be used for each row or each patient arranged as a list
 var row = []; //tr one for each patient
+var rowAnnot = [];  //tr one for each patient with annotation
 
 for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i]=makeRow(ps[i],0);
+  rowAnnot[i]=makeRow(ps[i],1);
   ourTableBody.appendChild(row[i])
   row[i].id=i; //needs to have persistence outside creation of object
+  rowAnnot[i].id=i+ps.length; //needs to have persistence outside creation of object. The annotated rows have id's starting after the unannotated
   row[i].onclick = function() {showSingle(this.id)};
+  rowAnnot[i].onclick = function() {showAll()};
 }
 
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
 
-function showSingle(iShow) {
+/*function showSingle(iShow) {
   console.log(iShow);
   for (var i=0; i < ps.length; i++){
     if (i != iShow){
@@ -415,6 +419,14 @@ function showSingle(iShow) {
     }
   }
   row[iShow].onclick = function() {showAll()};
+}*/
+function showSingle(iShow) {
+  console.log(iShow);
+  for (var i=0; i < ps.length; i++){
+    row[i].remove();
+  }
+  ourTableBody.appendChild(rowAnnot[iShow])    
+  rowAnnot[iShow].onclick = function() {showAll()};
 }
 
 function showAll(){
