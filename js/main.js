@@ -401,7 +401,6 @@ var rowAnnot = [];  //tr one for each patient with annotation
 for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i]=makeRow(ps[i],0);
   rowAnnot[i]=makeRow(ps[i],1);
-  //ourTableBody.appendChild(row[i])
   row[i].id=i; //needs to have persistence outside creation of object
   rowAnnot[i].id=i+ps.length; //needs to have persistence outside creation of object. The annotated rows have id's starting after the unannotated
   row[i].onclick = function() {showSingle(this.id)};
