@@ -396,15 +396,43 @@ var ourTable = document.getElementById("outerTable");//only the outer table is s
 var ourTableBody = document.createElement("tbody");
 //elements to be used for each row or each patient arranged as a list
 var row = []; //tr one for each patient
-var cell1 = [];//td left hand td for the patient's name. Turning this into an array is not needed (yet)
 
 for (var i = 0; i < ps.length; i++) { //iterate over patients
-  row[i] = document.createElement("tr");
+  row[i]=makeRow(ps[i]);
+  ourTableBody.appendChild(row[i])
+  row[i].id=i; //needs to have persistence outside creation of object
+  row[i].onclick = function() {showSingle(this.id)};
+}
+
+ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
+document.getElementById("pplaceholder").innerText="rev 000"; //useful for debugging
+
+function showSingle(iShow) {
+  console.log(iShow);
+  for (var i=0; i < ps.length; i++){
+    if (i != iShow){
+      row[i].remove();
+    }
+  }
+  row[iShow].onclick = function() {showAll()};
+}
+
+function showAll(){
+  for (var i=0; i < ps.length; i++){
+    row[i].onclick = function() {showSingle(this.id)};
+    ourTableBody.appendChild(row[i])    
+  }
+}
+
+function makeRow(psRow){
+  var row;
+  var cell1; //td left hand td for the patient's name.
+  row = document.createElement("tr");
   //at this point we want three td elements, the middle one containing an inner table
   //first td
-  cell1[i] = document.createElement("td");
-  var cellText1 = document.createTextNode(ps[i].name);
-  cell1[i].appendChild(cellText1)
+  cell1 = document.createElement("td");
+  var cellText1 = document.createTextNode(psRow.name);
+  cell1.appendChild(cellText1)
   //now the middle table
   var cell2 = document.createElement("td");
   var middleTable = document.createElement("table");
@@ -417,7 +445,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
     var cellLen = ps[i].stripe[j].len - 3;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
-    cellM1Text=document.createTextNode(ps[i].stripe[j].txt);
+    cellM1Text=document.createTextNode(psRow.stripe[j].txt);
     //cellM1Text=document.createTextNode("");
     cellM1.appendChild(cellM1Text);
     // Lookup the colour and set the css style
@@ -437,29 +465,8 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   // append middle table to cell2
   cell2.appendChild(middleTable)
   // append the three columns (td's) to the row
-  row[i].appendChild(cell1[i]);
-  row[i].appendChild(cell2);
-  row[i].appendChild(cell3);
-  ourTableBody.appendChild(row[i])
-  row[i].id=i; //needs to have persistence outside creation of object
-  row[i].onclick = function() {showSingle(this.id)};
-}
-ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 012"; //useful for debugging
-
-function showSingle(iShow) {
-  console.log(iShow);
-  for (var i=0; i < ps.length; i++){
-    if (i != iShow){
-      row[i].remove();
-    }
-  }
-  row[iShow].onclick = function() {showAll()};
-}
-
-function showAll(){
-  for (var i=0; i < ps.length; i++){
-    row[i].onclick = function() {showSingle(this.id)};
-    ourTableBody.appendChild(row[i])    
-  }
+  row.appendChild(cell1);
+  row.appendChild(cell2);
+  row.appendChild(cell3);
+  return(row);
 }
