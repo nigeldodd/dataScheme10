@@ -409,7 +409,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 008"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 007"; //useful for debugging
 
 function removeAllRows(){
   while (ourTableBody.firstChild) {//remove any children
@@ -448,8 +448,8 @@ function makeRow(psRow, annot){//psRow is the RDP row, annot is 0 for no annotat
   for (var j = 0; j <psRow.stripe.length; j++) {//all the parts of the stripe
     var cellM1=document.createElement("td");
     var cellM2=document.createElement("td");
-    //var cellLen = ps[i].stripe[j].len - 3; //3 is a fundge factor to compensate for widths of td borders
-    var cellLen = ps[i].stripe[j].len;
+    var cellLen = ps[i].stripe[j].len - 3; //3 is a fundge factor to compensate for widths of td borders
+    //var cellLen = ps[i].stripe[j].len;
     cellM1.style.width = cellLen + "px";
     cellM2.style.width = cellLen + "px";
     cellM1Text=document.createTextNode(psRow.stripe[j].txt);
