@@ -398,14 +398,14 @@ var ourTableBody = document.createElement("tbody");
 var row = []; //tr one for each patient
 
 for (var i = 0; i < ps.length; i++) { //iterate over patients
-  row[i]=makeRow(ps[i]);
+  row[i]=makeRow(ps[i],0);
   ourTableBody.appendChild(row[i])
   row[i].id=i; //needs to have persistence outside creation of object
   row[i].onclick = function() {showSingle(this.id)};
 }
 
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 000"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
 
 function showSingle(iShow) {
   console.log(iShow);
@@ -424,7 +424,7 @@ function showAll(){
   }
 }
 
-function makeRow(psRow){
+function makeRow(psRow, annot){
   var row;
   var cell1; //td left hand td for the patient's name.
   row = document.createElement("tr");
@@ -453,7 +453,9 @@ function makeRow(psRow){
     var colRef=colTable[0][colKey];//gets the value e.g. whi, a string. Must use [] not . to access this.
     cellM1.className="smallText";
     cellM2.className=colRef;
-    rowM1.appendChild(cellM1); //append cells one after another in the top row
+    if(annot){
+      rowM1.appendChild(cellM1); //append cells one after another in the top row
+    }
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
   }//end of middle cell
   middleTable.appendChild(rowM1);
