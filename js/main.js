@@ -432,7 +432,7 @@ function showAll(){
   }
 }
 
-function makeRow(psRow, annot){
+function makeRow(psRow, annot){//psRow is the RDP row, annot is 0 for no annotation, 1 for an upper row of annotation
   var row;
   var cell1; //td left hand td for the patient's name.
   row = document.createElement("tr");
