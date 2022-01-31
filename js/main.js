@@ -19,7 +19,7 @@ window.onload = () => {
  // Below is our target. This was made by hand from the Moqups graphic. The lengths are 10 x the days.
 // Only the Rule x lines need be implemented. 
 const psTarget = [{
-  "name" : "James Blunt",
+  "name" : "James Blunt 2nd",
   "stripe": [{"col" : "r","len": 40, "txt":"Triage"},//"Triage CT thorax requested" Rule 1 red between referral and triage-completed
   {"col" : "g","len": 80, "txt":"Td"},//"CT thorax done" 
   {"col" : "r","len": 10, "txt":"Cr"},//"Clinic Requested."" Rule 2 red between CT thorax-completed and clinic-added
