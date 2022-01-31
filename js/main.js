@@ -410,7 +410,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 004"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 005"; //useful for debugging
 
 
 function showSingle(iShow) {
@@ -447,7 +447,7 @@ function makeRow(psRow, annot){
   var rowM1 = document.createElement("tr"); //top row for PET, CT etc
   var rowM2 = document.createElement("tr"); //bottom row for stripe
   rowM2.className='stripe';
-  for (var j = 0; j <ps[i].stripe.length; j++) {//all the parts of the stripe
+  for (var j = 0; j <psRow.stripe.length; j++) {//all the parts of the stripe
     var cellM1=document.createElement("td");
     var cellM2=document.createElement("td");
     var cellLen = ps[i].stripe[j].len - 3;
