@@ -464,7 +464,7 @@ function makeRow(psRow, annot){//psRow is the RDP row, annot is 0 for no annotat
       rowM1.appendChild(cellM1); //append cells one after another in the top row
     }
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
-    cellM2.id=2*(ps.length)+j;
+    cellM2.id=2*(ps.length)+j; //intended for passing argument to onClick
   }//end of middle cell
   middleTable.appendChild(rowM1);
   middleTable.appendChild(rowM2);
