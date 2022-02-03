@@ -409,7 +409,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 007"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 000"; //useful for debugging
 
 function removeAllRows(){
   while (ourTableBody.firstChild) {//remove any children
