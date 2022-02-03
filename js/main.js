@@ -22,7 +22,7 @@ const psTarget = [{
   "name" : "James Blunt 2nd",
   "stripe": [{"col" : "r","len": 40, "txt":"Triage"},//"Triage CT thorax requested" Rule 1 red between referral and triage-completed
   {"col" : "g","len": 80, "txt":"Td"},//"CT thorax done" 
-  {"col" : "r","len": 10, "txt":"Cr"},//"Clinic Requested."" Rule 2 red between CT thorax-completed and clinic-added
+  {"col" : "r","len": 10, "txt":"Cr", "txt2":"Rule 2 red between CT thorax-completed and clinic-added"},//"Clinic Requested."" Rule 2 red between CT thorax-completed and clinic-added
   {"col" : "g","len": 10, "txt":"Cd"},//"Clinic done, PET-CT requested"
   {"col" : "g","len": 170, "txt":"PET done"},//"PET-CT done"
   {"col" : "r","len": 10, "txt":"Er"},//"EBUS requested" Rule 3 red between PET-CT-completed and Ebus-added
