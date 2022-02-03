@@ -409,7 +409,7 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 001"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
 
 function removeAllRows(){
   while (ourTableBody.firstChild) {//remove any children
@@ -428,6 +428,10 @@ function showAll(){
   for (var i=0; i < ps.length; i++){
     ourTableBody.appendChild(row[i])    
   }
+}
+
+function showSegment(iShow) {
+  console.log(iShow);
 }
 
 function makeRow(psRow, annot){//psRow is the RDP row, annot is 0 for no annotation, 1 for an upper row of annotation
@@ -465,6 +469,9 @@ function makeRow(psRow, annot){//psRow is the RDP row, annot is 0 for no annotat
     }
     rowM2.appendChild(cellM2); //append cells one after another in the bottom row
     cellM2.id=2*(ps.length)+j; //intended for passing argument to onClick
+    if(annot){
+      cellM2.onclick = function() {showSegment(this.id)};
+    }
   }//end of middle cell
   middleTable.appendChild(rowM1);
   middleTable.appendChild(rowM2);
