@@ -404,12 +404,12 @@ for (var i = 0; i < ps.length; i++) { //iterate over patients
   row[i].id=i; //needs to have persistence outside creation of object
   rowAnnot[i].id=i+ps.length; //needs to have persistence outside creation of object. The annotated rows have id's starting after the unannotated
   row[i].onclick = function() {showSingle(this.id)};
-  rowAnnot[i].onclick = function() {showAll()};
+  //rowAnnot[i].onclick = function() {showAll()};
 }
 
 showAll(); //The initial view is to show all the patients without annotation.
 ourTable.appendChild(ourTableBody);//outer table placed in ourTableBody which is passed from html
-document.getElementById("pplaceholder").innerText="rev 002"; //useful for debugging
+document.getElementById("pplaceholder").innerText="rev 003"; //useful for debugging
 
 function removeAllRows(){
   while (ourTableBody.firstChild) {//remove any children
